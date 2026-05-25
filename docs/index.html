@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NeuroEngage Outreach Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --teal:#1D9E75; --teal-light:#E1F5EE; --teal-dark:#0d6e50;
+    --purple:#534AB7; --purple-light:#EEEDFE;
+    --amber:#BA7517; --amber-light:#FAEEDA;
+    --red:#E24B4A;
+    --ink:#1C1B18; --ink-mid:#4A4945; --ink-soft:#888780;
+    --paper:#FAF8F3; --paper-2:#F1EFE8; --border:#E0DDD4; --white:#FFFFFF;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);}
+  .mono{font-family:'DM Mono',monospace;}
+  .soft{color:var(--ink-soft);}
+
+  /* HEADER */
+  .header{background:var(--ink);padding:2.5rem 3rem 2rem;position:relative;overflow:hidden;}
+  .header::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(29,158,117,.25),transparent 70%);border-radius:50%;}
+  .header::after{content:'';position:absolute;bottom:-40px;left:200px;width:200px;height:200px;background:radial-gradient(circle,rgba(83,74,183,.2),transparent 70%);border-radius:50%;}
+  .header-inner{position:relative;z-index:1;}
+  .h-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;color:var(--teal);text-transform:uppercase;margin-bottom:.5rem;}
+  .h-title{font-family:'DM Serif Display',serif;font-size:2.4rem;color:#fff;line-height:1.1;margin-bottom:.4rem;}
+  .h-sub{font-size:14px;color:#888780;font-weight:300;}
+  .h-date{font-family:'DM Mono',monospace;font-size:11px;color:#555;margin-top:1rem;}
+
+  /* STAT BAR */
+  .stats-bar{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
+  .stat-card{padding:1.8rem 2rem;border-right:1px solid var(--border);background:var(--white);position:relative;overflow:hidden;transition:background .2s;cursor:default;}
+  .stat-card:last-child{border-right:none;}
+  .stat-card:hover{background:var(--paper);}
+  .stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+  .stat-card:nth-child(1)::before{background:var(--teal);}
+  .stat-card:nth-child(2)::before{background:var(--purple);}
+  .stat-card:nth-child(3)::before{background:var(--amber);}
+  .stat-card:nth-child(4)::before{background:var(--red);}
+  .stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.6rem;}
+  .stat-value{font-family:'DM Serif Display',serif;font-size:2.8rem;color:var(--ink);line-height:1;margin-bottom:.3rem;}
+  .stat-sub{font-size:12px;color:var(--ink-soft);font-weight:300;}
+
+  /* GRID */
+  .main{padding:2rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+  .card{background:var(--white);border:1px solid var(--border);border-radius:2px;padding:1.5rem;animation:fadeUp .5s ease both;}
+  .card.full{grid-column:1/-1;}
+  .card-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:1.2rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px;}
+  .ct-left{display:flex;align-items:center;gap:8px;}
+  .dot{width:8px;height:8px;border-radius:50%;display:inline-block;flex-shrink:0;}
+  .avg-pill{font-family:'DM Mono',monospace;font-size:10px;padding:3px 8px;border-radius:10px;font-weight:400;white-space:nowrap;}
+  .pill-teal{background:var(--teal-light);color:var(--teal-dark);}
+  .pill-purple{background:var(--purple-light);color:var(--purple);}
+
+  /* BARS */
+  .bar-chart{display:flex;flex-direction:column;gap:10px;}
+  .bar-row{display:flex;align-items:center;gap:10px;}
+  .bar-label{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-mid);width:64px;flex-shrink:0;text-align:right;}
+  .bar-track{flex:1;height:22px;background:var(--paper-2);border-radius:2px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:2px;transition:width 1s cubic-bezier(.4,0,.2,1);}
+  .bar-val{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-mid);width:56px;flex-shrink:0;}
+
+  /* ACTIVITIES */
+  .activity-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;}
+  .activity-item{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--paper);border-radius:2px;border:1px solid var(--border);}
+  .act-dot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:white;flex-shrink:0;}
+  .act-name{font-size:12px;font-weight:500;color:var(--ink);line-height:1.2;}
+  .act-count{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-soft);}
+
+  /* VOLUNTEERS */
+  .vol-list{display:flex;flex-direction:column;gap:8px;}
+  .vol-row{display:flex;align-items:center;gap:10px;}
+  .vol-name{font-size:12px;font-weight:500;color:var(--ink);width:140px;flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .vol-track{flex:1;height:16px;background:var(--paper-2);border-radius:2px;overflow:hidden;}
+  .vol-fill{height:100%;background:var(--purple);border-radius:2px;transition:width 1s ease;}
+  .vol-count{font-family:'DM Mono',monospace;font-size:11px;color:var(--ink-soft);width:24px;text-align:right;}
+
+  /* TABLE */
+  .event-table{width:100%;border-collapse:collapse;}
+  .event-table th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);text-align:left;padding:0 10px 10px 0;border-bottom:1px solid var(--border);}
+  .event-table td{font-size:12px;color:var(--ink-mid);padding:8px 10px 8px 0;border-bottom:1px solid var(--paper-2);vertical-align:top;}
+  .event-table tr:last-child td{border-bottom:none;}
+  .venue-cell{color:var(--ink);font-weight:500;max-width:200px;}
+  .attendee-pill{display:inline-flex;align-items:center;background:var(--teal-light);color:var(--teal-dark);font-family:'DM Mono',monospace;font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500;}
+  .tag{display:inline-block;background:var(--paper-2);color:var(--ink-mid);font-size:10px;padding:2px 6px;border-radius:2px;margin:1px;}
+
+  /* TOOLTIP */
+  .tooltip{position:fixed;background:var(--ink);color:white;padding:8px 12px;border-radius:4px;font-size:12px;pointer-events:none;opacity:0;transition:opacity .15s;z-index:1000;font-family:'Outfit',sans-serif;}
+  .tooltip.show{opacity:1;}
+
+  /* FOOTER */
+  .footer{padding:1.5rem 3rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  .stat-card:nth-child(1){animation:fadeUp .4s ease .00s both;}
+  .stat-card:nth-child(2){animation:fadeUp .4s ease .06s both;}
+  .stat-card:nth-child(3){animation:fadeUp .4s ease .12s both;}
+  .stat-card:nth-child(4){animation:fadeUp .4s ease .18s both;}
+  .card:nth-child(1){animation-delay:.05s;}
+  .card:nth-child(2){animation-delay:.10s;}
+  .card:nth-child(3){animation-delay:.15s;}
+  .card:nth-child(4){animation-delay:.20s;}
+  .card:nth-child(5){animation-delay:.25s;}
+</style>
+</head>
+<body>
+
+<div class="tooltip" id="tt"></div>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="h-label">Georgia State University &bull; CBN / TReNDS</div>
+    <div class="h-title">NeuroEngage Outreach Dashboard</div>
+    <div class="h-sub">Dana NextGen Fellowship &mdash; Outreach Activity Record</div>
+    <div class="h-date">Generated May 25, 2026 &bull; Data: Jun 2025 &ndash; Apr 2026 &bull; Source: Neuroscience_OutreachReport(Sheet1).csv</div>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-card">
+    <div class="stat-label">Total Events</div>
+    <div class="stat-value" id="s-events">0</div>
+    <div class="stat-sub">outreach sessions logged</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">People Reached</div>
+    <div class="stat-value" id="s-attendees">0</div>
+    <div class="stat-sub">students &amp; community members</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Volunteer Hours</div>
+    <div class="stat-value" id="s-hours">0</div>
+    <div class="stat-sub">hours of outreach delivered</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">Unique Lead Volunteers</div>
+    <div class="stat-value" id="s-leads">0</div>
+    <div class="stat-sub">different people leading events</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="card">
+    <div class="card-title">
+      <span class="ct-left"><span class="dot" style="background:var(--teal)"></span>Attendees per month</span>
+      <span class="avg-pill pill-teal">avg <strong>360</strong> / month</span>
+    </div>
+    <div class="bar-chart" id="att-bars"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">
+      <span class="ct-left"><span class="dot" style="background:var(--purple)"></span>Events per month</span>
+      <span class="avg-pill pill-purple">avg <strong>3.9</strong> / month</span>
+    </div>
+    <div class="bar-chart" id="evt-bars"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-left"><span class="dot" style="background:var(--amber)"></span>Activity usage</span></div>
+    <div class="activity-grid" id="act-grid"></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span class="ct-left"><span class="dot" style="background:var(--red)"></span>Events led per volunteer</span></div>
+    <div class="vol-list" id="vol-list"></div>
+  </div>
+
+  <div class="card full">
+    <div class="card-title"><span class="ct-left"><span class="dot" style="background:var(--teal)"></span>Full event log (39 events)</span></div>
+    <table class="event-table">
+      <thead><tr><th>Date</th><th>Venue / Organization</th><th>Lead</th><th>Attendees</th><th>Activities</th><th>Hours</th></tr></thead>
+      <tbody>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Jun 2, 2025</td>
+        <td class="venue-cell">Rockdale Magnet School Summer Camp</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">40</span></td>
+        <td><span class="tag">Swimcap</span><span class="tag">Touch-a-Brain</span></td>
+        <td class="mono soft">3h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Jun 4, 2025</td>
+        <td class="venue-cell">Inspiring Engineers</td>
+        <td style="font-size:11px">David Waxler and Meghan Vogt</td>
+        <td><span class="attendee-pill">44</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Build-a-Neuron</span><span class="tag">Cogntivie Testing</span><span class="tag">Presentation</span></td>
+        <td class="mono soft">5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Jun 12, 2025</td>
+        <td class="venue-cell">Discovery Montessori</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">20</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Swimcap</span></td>
+        <td class="mono soft">1h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Aug 23, 2025</td>
+        <td class="venue-cell">Agape Level Up STEM Summit</td>
+        <td style="font-size:11px">David Waxler & Meghan Vogt</td>
+        <td><span class="attendee-pill">93</span></td>
+        <td><span class="tag">Build-a-Neuron</span><span class="tag">Touch-a-Brain</span></td>
+        <td class="mono soft">8h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 5, 2025</td>
+        <td class="venue-cell">Gwinnett Online Campus (8th Grade)</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">40</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Swimcap</span></td>
+        <td class="mono soft">1h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 12, 2025</td>
+        <td class="venue-cell">Crabapple crossing 4th grade TAG</td>
+        <td style="font-size:11px">Maria Misiura</td>
+        <td><span class="attendee-pill">44</span></td>
+        <td><span class="tag">Build-a-Neuron</span></td>
+        <td class="mono soft">2h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 12, 2025</td>
+        <td class="venue-cell">Gwinnet Online Campus</td>
+        <td style="font-size:11px">Erin Harris</td>
+        <td><span class="attendee-pill">40</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Presentation</span><span class="tag">GSR</span></td>
+        <td class="mono soft">1.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 17, 2025</td>
+        <td class="venue-cell">Decatur High School</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">30</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Cogntivie Testing</span></td>
+        <td class="mono soft">3h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 18, 2025</td>
+        <td class="venue-cell">Decatur High School</td>
+        <td style="font-size:11px">Marlena Duda</td>
+        <td><span class="attendee-pill">40</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Cogntivie Testing</span><span class="tag">Presentation</span></td>
+        <td class="mono soft">4h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 26, 2025</td>
+        <td class="venue-cell">Gwinnett Online Campus (K-5)</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">38</span></td>
+        <td><span class="tag">Build-a-Neuron</span></td>
+        <td class="mono soft">2.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 29, 2025</td>
+        <td class="venue-cell">Alzheimer's Awareness Luncheon</td>
+        <td style="font-size:11px">Asia Hemphill & Nadine Austin</td>
+        <td><span class="attendee-pill">24</span></td>
+        <td><span class="tag">Cogntivie Testing</span><span class="tag">Presentation</span><span class="tag">blood pressure testing lead by Nursing students, GSR stress test lead by Jennalyn</span></td>
+        <td class="mono soft">4h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 29, 2025</td>
+        <td class="venue-cell">Decatur High School</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">24</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Cogntivie Testing</span></td>
+        <td class="mono soft">3h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Sep 30, 2025</td>
+        <td class="venue-cell">Decatur High School</td>
+        <td style="font-size:11px">Ethan Lavine</td>
+        <td><span class="attendee-pill">80</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Cogntivie Testing</span></td>
+        <td class="mono soft">6h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Oct 3, 2025</td>
+        <td class="venue-cell">Mundy's Mill Middle School (6th graders)</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">80</span></td>
+        <td><span class="tag">Build-a-Neuron</span></td>
+        <td class="mono soft">4h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Oct 14, 2025</td>
+        <td class="venue-cell">Georgia State University, Undergraduate Research Showcase</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">200</span></td>
+        <td><span class="tag">Presentation</span></td>
+        <td class="mono soft">1h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Oct 22, 2025</td>
+        <td class="venue-cell">Henderson Middle School</td>
+        <td style="font-size:11px">Marlena Duda</td>
+        <td><span class="attendee-pill">80</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Cogntivie Testing</span></td>
+        <td class="mono soft">6h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Oct 29, 2025</td>
+        <td class="venue-cell">Maynard Jackson High School, Afterschool Neuroscience Club</td>
+        <td style="font-size:11px">Nadja Brown</td>
+        <td><span class="attendee-pill">15</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Grad student panel/discussion</span></td>
+        <td class="mono soft">1.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Nov 3, 2025</td>
+        <td class="venue-cell">Beacon Hill Middle School</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">50</span></td>
+        <td><span class="tag">Build-a-Neuron</span><span class="tag">Stress in the brain - 3 stations - brain network maturation, dendritic plasticity, stress reduction techniques with biofeedback</span></td>
+        <td class="mono soft">3h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Nov 6, 2025</td>
+        <td class="venue-cell">Beacon Hill Middle School</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">25</span></td>
+        <td><span class="tag">Build-a-Neuron</span><span class="tag">Stress in the brain - 3 stations - brain network maturation, dendritic plasticity, stress reduction techniques with biofeedback</span></td>
+        <td class="mono soft">3h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Nov 6, 2025</td>
+        <td class="venue-cell">Rock Spring Elementary</td>
+        <td style="font-size:11px">Ethan Lavine</td>
+        <td><span class="attendee-pill">40</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Build-a-Brain</span></td>
+        <td class="mono soft">1.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Dec 1, 2025</td>
+        <td class="venue-cell">Beacon Hill Middle School</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">100</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Build-a-Brain</span><span class="tag">Presentation</span></td>
+        <td class="mono soft">7h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Dec 2, 2025</td>
+        <td class="venue-cell">Beacon Hill Middle School</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">100</span></td>
+        <td><span class="tag">Build-a-Brain</span><span class="tag">Touch-a-Brain</span><span class="tag">Presentation</span></td>
+        <td class="mono soft">7h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Dec 3, 2025</td>
+        <td class="venue-cell">Beacon Hill Middle School</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">100</span></td>
+        <td><span class="tag">Build-a-Brain</span><span class="tag">Touch-a-Brain</span><span class="tag">Presentation</span></td>
+        <td class="mono soft">7h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Dec 4, 2025</td>
+        <td class="venue-cell">Beacon Hill Middle School</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">100</span></td>
+        <td><span class="tag">Build-a-Brain</span><span class="tag">Touch-a-Brain</span><span class="tag">Presentation</span></td>
+        <td class="mono soft">7h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Jan 10, 2026</td>
+        <td class="venue-cell">Marietta High School</td>
+        <td style="font-size:11px">Erica Tracey</td>
+        <td><span class="attendee-pill">80</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Presentation</span></td>
+        <td class="mono soft">4h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Jan 12, 2026</td>
+        <td class="venue-cell">North Gwinnett High School</td>
+        <td style="font-size:11px">Maria Misiura</td>
+        <td><span class="attendee-pill">100</span></td>
+        <td><span class="tag">Cogntivie Testing</span><span class="tag">plasticized brain</span></td>
+        <td class="mono soft">1.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Jan 14, 2026</td>
+        <td class="venue-cell">Young Homeschool  Scholar Society</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">5</span></td>
+        <td><span class="tag">Sheep Brain Dissection</span></td>
+        <td class="mono soft">2.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Jan 29, 2026</td>
+        <td class="venue-cell">Kittredge Magnet School Science Night</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">300</span></td>
+        <td><span class="tag">Touch-a-Brain</span></td>
+        <td class="mono soft">2.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Feb 5, 2026</td>
+        <td class="venue-cell">Grayson High School</td>
+        <td style="font-size:11px">Ethan Lavine</td>
+        <td><span class="attendee-pill">330</span></td>
+        <td><span class="tag">Touch-a-Brain</span></td>
+        <td class="mono soft">2.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Feb 24, 2026</td>
+        <td class="venue-cell">The Amana Academy</td>
+        <td style="font-size:11px">Ethan Levine and Shaina McGrath</td>
+        <td><span class="attendee-pill">40</span></td>
+        <td><span class="tag">Build-a-Brain</span><span class="tag">Presentation</span></td>
+        <td class="mono soft">4h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Mar 6, 2026</td>
+        <td class="venue-cell">Rockdale Magnet School for Science and Technology</td>
+        <td style="font-size:11px">Erin Harris</td>
+        <td><span class="attendee-pill">80</span></td>
+        <td><span class="tag">Touch-a-Brain</span></td>
+        <td class="mono soft">2h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Mar 12, 2026</td>
+        <td class="venue-cell">Wesley Academy STEM Night</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">151</span></td>
+        <td><span class="tag">Touch-a-Brain</span></td>
+        <td class="mono soft">2h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Mar 21, 2026</td>
+        <td class="venue-cell">Atlanta Science Festival Expo</td>
+        <td style="font-size:11px">Corey, Kyle, Maria, and David</td>
+        <td><span class="attendee-pill">609</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Two emotions stations</span></td>
+        <td class="mono soft">8h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Mar 23, 2026</td>
+        <td class="venue-cell">Beacon Hill Gifted Connections</td>
+        <td style="font-size:11px">Maria Misiura</td>
+        <td><span class="attendee-pill">50</span></td>
+        <td><span class="tag">Stress stations - GSR, dendritic spines, brain networks</span></td>
+        <td class="mono soft">2h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Mar 24, 2026</td>
+        <td class="venue-cell">Beacon Hill Gifted Connections</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">50</span></td>
+        <td><span class="tag">Stress stations - GSR, dendritic spines, brain networks</span></td>
+        <td class="mono soft">3h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Mar 26, 2026</td>
+        <td class="venue-cell">Northview High School Neurotroph Neuroscience Club</td>
+        <td style="font-size:11px">Jeremiah Isaac</td>
+        <td><span class="attendee-pill">24</span></td>
+        <td><span class="tag">Presentation</span></td>
+        <td class="mono soft">2h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Apr 22, 2026</td>
+        <td class="venue-cell">National Cathedral School, Washington DC</td>
+        <td style="font-size:11px">Kyle Frantz</td>
+        <td><span class="attendee-pill">30</span></td>
+        <td><span class="tag">Build-a-Brain</span><span class="tag">Touch-a-Brain</span></td>
+        <td class="mono soft">2h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Apr 24, 2026</td>
+        <td class="venue-cell">Slater Elementary</td>
+        <td style="font-size:11px">David Waxler</td>
+        <td><span class="attendee-pill">225</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Build-a-Neuron</span></td>
+        <td class="mono soft">4.5h</td>
+      </tr>
+      <tr>
+        <td class="mono soft" style="white-space:nowrap">Apr 28, 2026</td>
+        <td class="venue-cell">Atlanta North School</td>
+        <td style="font-size:11px">Ethan Lavine</td>
+        <td><span class="attendee-pill">80</span></td>
+        <td><span class="tag">Touch-a-Brain</span><span class="tag">Build-a-Neuron</span></td>
+        <td class="mono soft">3h</td>
+      </tr></tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="mono soft" style="font-size:10px;letter-spacing:.08em">NEUROENGAGE &bull; DANA NEXTGEN FELLOWSHIP &bull; GSU</div>
+  <div class="mono soft" style="font-size:10px">39 events &bull; Generated May 25, 2026</div>
+</div>
+
+<script>
+const DATA = {
+  "monthly": {
+    "Jun 2025": {
+      "events": 3,
+      "attendees": 104,
+      "hours": 9.0
+    },
+    "Aug 2025": {
+      "events": 1,
+      "attendees": 93,
+      "hours": 8.0
+    },
+    "Sep 2025": {
+      "events": 9,
+      "attendees": 360,
+      "hours": 27.0
+    },
+    "Oct 2025": {
+      "events": 4,
+      "attendees": 375,
+      "hours": 12.5
+    },
+    "Nov 2025": {
+      "events": 3,
+      "attendees": 115,
+      "hours": 7.5
+    },
+    "Dec 2025": {
+      "events": 4,
+      "attendees": 400,
+      "hours": 28.0
+    },
+    "Jan 2026": {
+      "events": 4,
+      "attendees": 485,
+      "hours": 10.5
+    },
+    "Feb 2026": {
+      "events": 2,
+      "attendees": 370,
+      "hours": 6.5
+    },
+    "Mar 2026": {
+      "events": 6,
+      "attendees": 964,
+      "hours": 19.0
+    },
+    "Apr 2026": {
+      "events": 3,
+      "attendees": 335,
+      "hours": 9.5
+    }
+  },
+  "activities": {
+    "Touch-a-Brain": 26,
+    "Presentation": 12,
+    "Build-a-Neuron": 9,
+    "Cogntivie Testing": 8,
+    "Build-a-Brain": 7,
+    "Swimcap": 3,
+    "Stress in the brain - 3 stations - brain network maturation, dendritic plasticity, stress reduction techniques with biofeedback": 2,
+    "Stress stations - GSR, dendritic spines, brain networks": 2,
+    "GSR": 1,
+    "blood pressure testing lead by Nursing students, GSR stress test lead by Jennalyn": 1,
+    "Grad student panel/discussion": 1,
+    "plasticized brain": 1,
+    "Sheep Brain Dissection": 1,
+    "Two emotions stations": 1
+  },
+  "leads": {
+    "Kyle Frantz": 11,
+    "David Waxler": 9,
+    "Ethan Lavine": 4,
+    "Maria Misiura": 3,
+    "Erin Harris": 2,
+    "Marlena Duda": 2,
+    "David Waxler and Meghan Vogt": 1,
+    "David Waxler & Meghan Vogt": 1,
+    "Asia Hemphill & Nadine Austin": 1,
+    "Nadja Brown": 1,
+    "Erica Tracey": 1,
+    "Ethan Levine and Shaina McGrath": 1,
+    "Corey, Kyle, Maria, and David": 1,
+    "Jeremiah Isaac": 1
+  }
+};
+const COLORS=['#1D9E75','#534AB7','#BA7517','#E24B4A','#0d6e50','#8B80D4','#D4910F','#2E86AB','#E07A5F'];
+
+const tt=document.getElementById('tt');
+const tip=(e,h)=>{tt.innerHTML=h;tt.classList.add('show');move(e);};
+const move=(e)=>{tt.style.left=(e.clientX+14)+'px';tt.style.top=(e.clientY-10)+'px';};
+const hide=()=>tt.classList.remove('show');
+
+function counter(el,target,dur=1200){
+  const t0=performance.now();
+  const isF=String(target).includes('.');
+  (function step(now){
+    const p=Math.min((now-t0)/dur,1),e=1-Math.pow(1-p,3);
+    el.textContent=Number(isF?(target*e).toFixed(1):Math.round(target*e)).toLocaleString();
+    if(p<1)requestAnimationFrame(step);
+  })(t0);
+}
+
+counter(document.getElementById('s-events'),   39);
+counter(document.getElementById('s-attendees'), 3601);
+counter(document.getElementById('s-hours'),     137.5);
+counter(document.getElementById('s-leads'),     14);
+
+// ── BARS (fully dynamic from DATA) ──
+const months = Object.keys(DATA.monthly);
+const nMonths = months.length;
+const maxAtt = Math.max(...months.map(m=>DATA.monthly[m].attendees));
+const maxEvt = Math.max(...months.map(m=>DATA.monthly[m].events));
+
+months.forEach((m,i)=>{
+  const attVal = DATA.monthly[m].attendees;
+  const evtVal = DATA.monthly[m].events;
+  const label  = m.replace(' 20'," '");
+  const recent = i >= nMonths - 4;
+
+  // Attendees bar
+  const ar = document.createElement('div');
+  ar.className='bar-row';
+  ar.innerHTML=`<div class="bar-label">${label}</div>
+    <div class="bar-track"><div class="bar-fill" style="width:0%;background:${recent?'#1D9E75':'#B0DDD1'}" data-w="${(attVal/maxAtt*100).toFixed(1)}"></div></div>
+    <div class="bar-val">${attVal.toLocaleString()}</div>`;
+  ar.addEventListener('mouseenter',e=>tip(e,`<strong>${m}</strong><br>${attVal.toLocaleString()} attendees`));
+  ar.addEventListener('mousemove',move); ar.addEventListener('mouseleave',hide);
+  document.getElementById('att-bars').appendChild(ar);
+
+  // Events bar
+  const er = document.createElement('div');
+  er.className='bar-row';
+  er.innerHTML=`<div class="bar-label">${label}</div>
+    <div class="bar-track"><div class="bar-fill" style="width:0%;background:#534AB7;opacity:${recent?1:0.5}" data-w="${(evtVal/maxEvt*100).toFixed(1)}"></div></div>
+    <div class="bar-val">${evtVal} evt${evtVal!==1?'s':''}</div>`;
+  er.addEventListener('mouseenter',e=>tip(e,`<strong>${m}</strong><br>${evtVal} event${evtVal!==1?'s':''}`));
+  er.addEventListener('mousemove',move); er.addEventListener('mouseleave',hide);
+  document.getElementById('evt-bars').appendChild(er);
+});
+
+setTimeout(()=>document.querySelectorAll('.bar-fill').forEach(el=>el.style.width=el.dataset.w+'%'),300);
+
+// ── ACTIVITIES (fully dynamic from DATA) ──
+Object.entries(DATA.activities).forEach(([name,count],i)=>{
+  const d=document.createElement('div');
+  d.className='activity-item';
+  d.innerHTML=`<div class="act-dot" style="background:${COLORS[i%COLORS.length]}">${count}</div>
+    <div><div class="act-name">${name}</div><div class="act-count">${count} event${count!==1?'s':''}</div></div>`;
+  document.getElementById('act-grid').appendChild(d);
+});
+
+// ── VOLUNTEERS (fully dynamic from DATA) ──
+const leadEntries = Object.entries(DATA.leads);
+const maxL = leadEntries[0][1];
+leadEntries.forEach(([name,count])=>{
+  const r=document.createElement('div');
+  r.className='vol-row';
+  r.innerHTML=`<div class="vol-name" title="${name}">${name}</div>
+    <div class="vol-track"><div class="vol-fill" style="width:0%" data-w="${(count/maxL*100).toFixed(1)}"></div></div>
+    <div class="vol-count">${count}</div>`;
+  r.addEventListener('mouseenter',e=>tip(e,`<strong>${name}</strong><br>${count} events led`));
+  r.addEventListener('mousemove',move); r.addEventListener('mouseleave',hide);
+  document.getElementById('vol-list').appendChild(r);
+});
+setTimeout(()=>document.querySelectorAll('.vol-fill').forEach(el=>{el.style.transition='width 1s ease';el.style.width=el.dataset.w+'%';}),400);
+</script>
+</body>
+</html>
