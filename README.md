@@ -1,88 +1,160 @@
 # NeuroEngage Outreach Dashboard
 
-Auto-updating dashboard for NeuroEngage outreach events.  
-Pulls data from Microsoft Forms / OneDrive and publishes to GitHub Pages automatically.
+Dashboard and progress report for NeuroEngage outreach events, generated from
+the Microsoft Forms export and published with GitHub Pages.
+
+- **Dashboard** — `https://YOUR-USERNAME.github.io/neuroengage-dashboard`
+- **Progress report** — `https://YOUR-USERNAME.github.io/neuroengage-dashboard/report.html`
 
 ---
 
-## How it works
+## Updating the dashboard
 
-1. Someone submits the Microsoft Forms outreach form
-2. OneDrive Excel file updates automatically
-3. GitHub Actions runs every 4 hours, downloads the latest Excel, regenerates the dashboard
-4. Updated dashboard is live at your GitHub Pages URL instantly
+1. Export the Microsoft Forms responses to CSV.
+2. Save it into `data/` as `outreach_export_YYYY-MM-DD.csv` (today's date).
+   **Keep the older exports** — see *Why exports are merged* below.
+   The exports stay on your machine only (`data/*.csv` is git-ignored): they
+   contain volunteer emails and free-text notes, and this repo is public.
+   Back them up somewhere private (e.g. Dropbox).
+3. Regenerate and commit:
 
----
-
-## One-time setup (do this once)
-
-### Step 1 — Create the GitHub repo
-
-1. Go to [github.com](https://github.com) and click **New repository**
-2. Name it: `neuroengage-dashboard`
-3. Set it to **Public** (required for free GitHub Pages)
-4. Do NOT initialize with a README (you already have these files)
-5. Click **Create repository**
-6. Upload all these files into the repo (drag and drop or use GitHub Desktop)
-
----
-
-### Step 2 — Get your OneDrive sharing link
-
-1. Go to OneDrive / SharePoint and find your Microsoft Forms Excel file
-2. Right-click the file > **Share** > **Copy link**
-3. Make sure the link is set to **"Anyone with the link can view"**
-4. Copy that URL — you will need it in Step 3
-
----
-
-### Step 3 — Add your OneDrive URL as a GitHub Secret
-
-This keeps your URL private and out of your code.
-
-1. In your GitHub repo, go to **Settings** (top menu)
-2. Click **Secrets and variables** > **Actions** (left sidebar)
-3. Click **New repository secret**
-4. Name: `ONEDRIVE_URL`
-5. Value: paste your OneDrive sharing link from Step 2
-6. Click **Add secret**
-
----
-
-### Step 4 — Enable GitHub Pages
-
-1. In your GitHub repo, go to **Settings**
-2. Click **Pages** (left sidebar)
-3. Under **Source**, select **Deploy from a branch**
-4. Branch: `main` | Folder: `/docs`
-5. Click **Save**
-6. After a minute, your dashboard will be live at:
-   `https://YOUR-USERNAME.github.io/neuroengage-dashboard`
-
----
-
-### Step 5 — Run it manually the first time
-
-1. Go to your repo > **Actions** tab
-2. Click **Regenerate NeuroEngage Dashboard** (left sidebar)
-3. Click **Run workflow** > **Run workflow**
-4. Wait about 1 minute — it will download your data and publish the dashboard
-5. Visit your GitHub Pages URL to see it live!
-
----
-
-## Changing the update schedule
-
-The dashboard currently refreshes every 4 hours. To change this, edit:  
-`.github/workflows/update_dashboard.yml`
-
-Change the cron line:
+```bash
+python3 generate_dashboard.py
+git add docs
+git commit -m "Update dashboard"
+git push
 ```
-'0 */4 * * *'   → every 4 hours
-'0 * * * *'     → every hour
-'0 0 * * *'     → once a day at midnight
-'0 0 * * 1'     → once a week on Monday
+
+`generate_dashboard.py` with no arguments reads every CSV in `data/` in
+filename order and writes `docs/index.html` **and** `docs/report.html`. No
+dependencies beyond the Python 3 standard library.
+
+Other options:
+
+```bash
+python3 generate_dashboard.py --pdf               # also write docs/NeuroEngage_Progress_Report.pdf
+python3 generate_dashboard.py --pptx              # also build the 10-slide deck (needs python-pptx + Chrome)
+python3 generate_dashboard.py -o preview.html     # write somewhere else first
+python3 generate_dashboard.py old.csv new.csv     # specific files, oldest first
+python3 generate_dashboard.py -q                  # only report problems
 ```
+
+---
+
+## The progress report (Dana Foundation)
+
+`docs/report.html` is a cumulative view of the same data for grant reporting:
+month-by-month cumulative charts (events, people reached, event hours,
+distinct volunteers), per-term snapshot tables, repeat-volunteer analysis, and
+the full volunteer roster with events served.
+
+- **Reporting window**: fall 2025 onward (`REPORT_START` in
+  `neuroengage/report.py`, override with `--report-since YYYY-MM`). The grant
+  period runs through December 2027; the report grows into it as data arrives.
+  Events before the window (the June 2025 pilots) are excluded from the
+  figures and noted in the method notes.
+- **PDF for submission**: the page is print-ready — run
+  `python3 generate_dashboard.py --pdf` (uses Chrome/Chromium/Edge if
+  installed) or open `report.html` in any browser and print to PDF.
+- **Slide deck for presenting**: `python3 generate_dashboard.py --pptx`
+  rebuilds `docs/NeuroEngage_Progress_Deck.pptx` (10 slides, 16:9) from the
+  same data — title, KPI cards, one slide per cumulative chart with target
+  paces, term snapshot table, repeat-volunteer analysis, volunteer roster, and
+  method notes. Charts are images (pixel-identical to the report); all text
+  and the table are native, editable PowerPoint shapes. Needs
+  `pip install python-pptx` and a Chromium-family browser, both only for this
+  flag. Regenerate the deck rather than editing numbers by hand — hand edits
+  are overwritten on the next run.
+- Academic terms are Fall = Aug–Dec, Spring = Jan–Apr, Summer = May–Jul.
+
+Anything the generator had to interpret is printed to the terminal and repeated
+on the page itself, under *How these numbers were read from the form responses*.
+Read it after each update — it is how you catch a bad form response early.
+
+---
+
+## Why exports are merged rather than replaced
+
+Form responses can be edited after submission, and a later export has been
+observed **losing** data an earlier one had. In the August 2026 export, the
+June 2 2025 Rockdale event lost its `3 hours` duration and ten events lost
+their notes.
+
+So exports are merged by response Id, and for each field the newest export that
+actually has a value wins. A later export can correct a value but cannot blank
+one out. That is why old exports stay in `data/`.
+
+---
+
+## How the messy fields are read
+
+Volunteers type free text, so the parsers are deliberately forgiving — and they
+report every judgement call rather than guessing quietly.
+
+**Attendance** takes the first number in each clause and adds the clauses up:
+
+| Entry | Counted as |
+|---|---|
+| `50 7th graders` | 50 |
+| `71 for TaB in expo hall; 22 for BaN in classrooms` | 93 |
+| `~70-80` | 75, flagged as an estimate (`~75` on the page) |
+| `~40` | 40, flagged as an estimate |
+
+**Duration** understands worded durations and clock ranges:
+
+| Entry | Counted as |
+|---|---|
+| `2.5`, `3 hours`, `1 hr` | 2.5, 3, 1 |
+| `4 hrs 45 min` | 4.75 |
+| `8am set up to 1pm clean up` | 5 |
+| `8:00 AM- 4:30 PM` | 8.5 |
+
+A blank duration or headcount is reported as missing. It is never counted as
+zero.
+
+**Lead volunteers** are split into individual people, so a co-led event credits
+each lead separately — `David Waxler & Meghan Vogt` is two people, and
+`Corey, Kyle, Maria, and David` is four. Spelling variants of the same person
+are merged (`Ethan Levine` → `Ethan Lavine`) and bare first names are expanded
+against the roster of everyone named in the data.
+
+Two variants only merge when they share a first or last name *and* are very
+similar, which keeps genuinely different people apart. When both spellings are
+equally common the generator prints a tie warning — pin the right one in
+`NAME_ALIASES` in `neuroengage/data.py`.
+
+**Activities** fold synonyms together, so `GSR` and
+`Galvanic Skin Response (GSR)` are one activity, not two. Unrecognised entries
+are kept exactly as typed rather than guessed at. Add new synonyms to
+`ACTIVITY_ALIASES` in `neuroengage/parsing.py`.
+
+**Monthly charts** cover every calendar month between the first and last event,
+including months with no events, so the per-month averages describe the real
+period rather than only the months that happen to have data.
+
+---
+
+## When the form changes
+
+Columns are matched on a normalised prefix, so a reworded question keeps
+working — `Length of Time (e.g., hours spent volunteering)` and
+`Length of Time in hours (e.g., 2.5 hours spent volunteering)` both resolve. New
+columns (like `Zip Code for Event Location`) are ignored safely.
+
+If a question is renamed beyond recognition the generator **stops with an error
+listing the headers it found**, instead of silently reading that field as empty.
+Add the new wording to `COLUMN_PREFIXES` in `neuroengage/parsing.py`.
+
+---
+
+## Tests
+
+```bash
+python3 -m unittest discover tests
+```
+
+Every case in `tests/test_parsing.py` is a real entry someone typed into the
+form, plus the failure modes of the earlier parser.
 
 ---
 
@@ -90,23 +162,35 @@ Change the cron line:
 
 ```
 neuroengage-dashboard/
-├── .github/
-│   └── workflows/
-│       └── update_dashboard.yml   ← GitHub Actions automation
-├── data/
-│   └── outreach_data.csv          ← auto-downloaded from OneDrive
+├── data/                         ← local only, git-ignored
+│   ├── outreach_export_2026-05-25.csv   ← keep old exports, they are merged
+│   └── outreach_export_2026-08-12.csv
 ├── docs/
-│   └── index.html                 ← the live dashboard (served by GitHub Pages)
-├── download_data.py               ← downloads Excel from OneDrive, converts to CSV
-├── generate_dashboard.py          ← reads CSV, generates dashboard HTML
-└── README.md                      ← this file
+│   ├── index.html            ← the live dashboard (served by GitHub Pages)
+│   ├── report.html           ← cumulative progress report (Dana Foundation)
+│   └── NeuroEngage_Progress_Report.pdf   ← printable copy (regenerate with --pdf)
+├── neuroengage/
+│   ├── parsing.py            ← column matching + free-text parsers + name resolver
+│   ├── data.py               ← merging exports, building events, aggregation
+│   ├── render.py             ← dashboard HTML/CSS/JS
+│   └── report.py             ← cumulative report: series, SVG charts, print CSS
+├── tests/
+│   ├── test_parsing.py
+│   └── test_report.py
+├── generate_dashboard.py     ← command-line entry point
+└── README.md
 ```
 
 ---
 
-## Sharing the dashboard
+## GitHub Pages setup (one time)
 
-Once live, share this link with your whole team:  
-`https://YOUR-USERNAME.github.io/neuroengage-dashboard`
+1. Repo **Settings** → **Pages**
+2. **Source**: Deploy from a branch
+3. Branch `main`, folder `/docs` → **Save**
 
-It works on any device, any browser, no login required.
+The dashboard updates when you push a regenerated `docs/index.html`.
+
+> The repo previously fetched the Excel file from OneDrive on a schedule via
+> GitHub Actions. That workflow and `download_data.py` were removed, so updating
+> is the manual export-and-regenerate flow above.

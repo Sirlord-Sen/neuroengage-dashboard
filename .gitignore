@@ -3,3 +3,10 @@ __pycache__/
 .DS_Store
 *.xlsx
 *.xls
+
+# grant documents stay local — this repo is public
+data/*.pdf
+
+# raw Forms exports contain volunteer emails and free-text notes — keep local.
+# Only the generated pages in docs/ are published.
+data/*.csv
