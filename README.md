@@ -37,6 +37,7 @@ python3 generate_dashboard.py --pptx              # also build the 10-slide deck
 python3 generate_dashboard.py -o preview.html     # write somewhere else first
 python3 generate_dashboard.py old.csv new.csv     # specific files, oldest first
 python3 generate_dashboard.py -q                  # only report problems
+python3 generate_dashboard.py --no-map            # skip the outreach map
 ```
 
 ---
@@ -70,6 +71,51 @@ the full volunteer roster with events served.
 Anything the generator had to interpret is printed to the terminal and repeated
 on the page itself, under *How these numbers were read from the form responses*.
 Read it after each update — it is how you catch a bad form response early.
+
+---
+
+## The outreach map
+
+`docs/map.html` shows every visit site as a dot whose **area** is the number of
+people reached there, with a toggle between *K–12 school & youth visits* and
+*all events*. Central Atlanta & Decatur get an enlarged panel; sites outside
+Georgia go in a box. `docs/map_k12.svg` and `docs/map_all.svg` are the same maps
+as standalone vector files for the poster (drop into PowerPoint/Illustrator at
+any size).
+
+The form's zip-code field is almost always blank, so locations live in
+**`venues.csv`** (committed — it holds only public venue names and coordinates):
+
+| column | meaning |
+|---|---|
+| `venue` | name as typed on the form (typos and "(K-5)"-style suffixes still match) |
+| `label` | short name drawn on the map |
+| `site` | optional — venues sharing a campus get the same site and become one dot |
+| `audience` | `k12` (school & youth) or `public` (community / family / professional) |
+| `lat`, `lon` | leave blank if unknown — the venue is listed as *not yet mapped*, never guessed |
+| `precision` | `venue`, or `zip` / `city` for an approximate spot (drawn dashed) |
+
+After each export, the generator warns about any venue missing from
+`venues.csv`; add a row (look the school up on openstreetmap.org — right-click →
+*Show address* gives the coordinates) and rerun.
+
+---
+
+## The 20-year landscape
+
+`docs/landscape.html` (and `docs/landscape.svg` for the poster) draws people
+reached per **academic year** (Aug–Jul, labelled by the fall it starts) as a
+horizon, with program milestones planted on it as flags.
+
+- **`history.csv`** — `year,people,status,source`. `status` is `actual`,
+  `estimate` (hollow dot) or `placeholder` (grey, and the whole figure is
+  stamped DRAFT). Years not listed are filled live from the event form, and a
+  listed year is never added to the form's count.
+- **`milestones.csv`** — `date,label,status`, `date` as `YYYY` or `YYYY-MM`,
+  `status` `confirmed` or `placeholder` (grey flag, "date TBC").
+
+The values shipped in these files are **placeholders** until the real yearly
+counts and milestone dates arrive.
 
 ---
 

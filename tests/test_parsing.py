@@ -146,9 +146,24 @@ class TestSplitPeople(unittest.TestCase):
 
     def test_parentheticals_are_trimmed(self):
         self.assertEqual(
-            split_people('Corey Walker, Ezichi Emmanuel (no show)'),
+            split_people('Corey Walker, Ezichi Emmanuel (grad student)'),
             ['Corey Walker', 'Ezichi Emmanuel'],
         )
+
+    def test_no_shows_are_not_counted(self):
+        self.assertEqual(
+            split_people('Corey Walker, Ezichi Emmanuel (no show)'),
+            ['Corey Walker'],
+        )
+        self.assertEqual(
+            split_people('Kailtin Carson, Hanyu Kee, James Saint Vrestil (no show), Ameema Basith (No-Show)'),
+            ['Kailtin Carson', 'Hanyu Kee'],
+        )
+
+    def test_email_only_entries_are_not_names(self):
+        raw = ('Luna Williams <lw@student.gsu.edu>; adunola.obi@gmail.com <adunola.obi@gmail.com>; '
+               'kylejfrantz@yahoo.com <kylejfrantz@yahoo.com>, Chanpreet')
+        self.assertEqual(split_people(raw), ['Luna Williams', 'Chanpreet'])
 
 
 class TestNameResolver(unittest.TestCase):

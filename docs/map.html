@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NeuroEngage Outreach Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+  :root{--teal:#1D9E75;--purple:#534AB7;--ink:#1C1B18;--ink-mid:#4A4945;--ink-soft:#888780;
+        --paper:#FAF8F3;--paper-2:#F1EFE8;--border:#E0DDD4;--white:#FFFFFF;}
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);font-size:13px;}
+  .mono{font-family:'DM Mono',monospace;}
+  .sheet{max-width:1000px;margin:0 auto;background:var(--white);}
+  @media screen{body{padding:2rem 16px;}.sheet{border:1px solid var(--border);border-radius:2px;}}
+  header{background:var(--ink);padding:1.8rem 2.2rem 1.5rem;}
+  .h-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--teal);text-transform:uppercase;margin-bottom:.45rem;}
+  .h-title{font-family:'DM Serif Display',serif;font-size:1.9rem;color:#fff;line-height:1.12;}
+  .h-sub{font-size:12.5px;color:#a9a8a2;font-weight:300;margin-top:.35rem;}
+  .h-links{margin-top:.9rem;font-family:'DM Mono',monospace;font-size:10px;display:flex;gap:14px;flex-wrap:wrap;}
+  .h-links a{color:#c9c9c2;}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border);}
+  .kpi{padding:1rem 1.3rem;border-right:1px solid var(--border);border-top:3px solid var(--accent,var(--teal));}
+  .kpi:last-child{border-right:none;}
+  .kpi-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.4rem;}
+  .kpi-value{font-family:'DM Serif Display',serif;font-size:2rem;line-height:1;}
+  .kpi-sub{font-size:10.5px;color:var(--ink-soft);margin-top:.3rem;font-weight:300;}
+  .section{padding:1.4rem 2.2rem;}
+  .section+.section{border-top:1px solid var(--border);}
+  .sec-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:.9rem;}
+  .toggle{display:flex;gap:6px;margin-bottom:.9rem;flex-wrap:wrap;}
+  .toggle button{font:inherit;font-size:12px;padding:.35rem .8rem;border:1px solid var(--border);background:var(--white);border-radius:999px;cursor:pointer;color:var(--ink-mid);}
+  .toggle button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .view{display:none;}
+  .view.on{display:block;}
+  .map-svg{width:100%;height:auto;display:block;font-family:'Outfit',sans-serif;}
+  #map{height:620px;border:1px solid var(--border);border-radius:4px;background:#eef0ee;}
+  @media (max-width:700px){#map{height:460px;}}
+  .leaflet-container{font-family:'Outfit',sans-serif;}
+  .leaflet-container img.leaflet-tile{mix-blend-mode:plus-lighter;}
+  .site-label{background:rgba(255,255,255,.92);border:none;box-shadow:0 1px 3px rgba(0,0,0,.18);border-radius:3px;
+    padding:1px 6px;font-size:11.5px;font-weight:500;color:var(--ink);white-space:nowrap;}
+  .site-label::before{display:none;}
+  .site-label .n{font-family:'DM Mono',monospace;font-weight:400;color:var(--ink-mid);margin-left:4px;font-size:10.5px;}
+  .leaflet-popup-content{margin:10px 14px;font-size:12px;line-height:1.45;}
+  .pop-title{font-weight:500;font-size:13.5px;}
+  .pop-sub{color:var(--ink-soft);font-size:11px;margin-bottom:6px;}
+  .pop table td{padding:2px 6px 2px 0;border:none;font-size:11.5px;}
+  .map-legend{background:rgba(255,255,255,.95);padding:10px 12px;border-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,.2);font-size:11.5px;line-height:1.5;color:var(--ink);}
+  .map-legend .row{display:flex;align-items:center;gap:7px;}
+  .map-legend .dot{display:inline-block;border-radius:50%;}
+  .map-legend .sizes{display:flex;align-items:flex-end;gap:10px;margin-top:6px;}
+  .map-legend .sizes div{text-align:center;font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-mid);}
+  .map-legend .sizes span{display:block;margin:0 auto 2px;border-radius:50%;border:1.5px solid var(--ink-mid);}
+  .jump{margin-left:auto;}
+  .site{cursor:pointer;outline:none;}
+  .site:hover circle:first-of-type,.site:focus circle:first-of-type{fill-opacity:1;}
+  .caption{font-size:11px;color:var(--ink-soft);font-weight:300;margin-top:.6rem;line-height:1.5;}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;font-size:11.5px;line-height:1.45;padding:.5rem .7rem;border-radius:4px;max-width:340px;white-space:pre-line;display:none;z-index:9;box-shadow:0 2px 10px rgba(0,0,0,.2);}
+  #tip b{font-weight:500;}
+  table{width:100%;border-collapse:collapse;font-size:12px;}
+  th{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);text-align:left;font-weight:400;padding:.4rem .5rem;border-bottom:1px solid var(--border);}
+  td{padding:.4rem .5rem;border-bottom:1px solid var(--paper-2);vertical-align:top;}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;}
+  .swatch{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:middle;}
+  .notes li{margin:0 0 .45rem 1rem;font-size:12px;color:var(--ink-mid);line-height:1.5;}
+  .approx{color:var(--ink-soft);font-size:10.5px;}
+  .downloads a{color:var(--ink-mid);font-size:12px;margin-right:14px;}
+  @media (max-width:700px){.kpis{grid-template-columns:repeat(2,1fr);}.section,header{padding-left:16px;padding-right:16px;}}
+  @media print{body{padding:0;}.toggle,.downloads{display:none;}.view{display:block;break-inside:avoid;}}
+</style></head>
+<body><div class="sheet">
+<header>
+  <div class="h-label">NeuroEngage · Georgia State University</div>
+  <div class="h-title">Where our outreach reaches</div>
+  <div class="h-sub">Every school visit and public event, sized by the number of people reached · Jun 2025 – Oct 2026</div>
+  <div class="h-links"><a href="index.html">← Dashboard</a><a href="report.html">Progress report</a><a href="landscape.html">20-year landscape</a></div>
+</header>
+<div class="kpis">
+  <div class="kpi" style="--accent:var(--teal)"><div class="kpi-label">K–12 & youth reached</div><div class="kpi-value">3,010</div><div class="kpi-sub">38 visits · 21 sites · +89 not yet mapped</div></div>
+  <div class="kpi" style="--accent:var(--teal)"><div class="kpi-label">Schools & youth sites</div><div class="kpi-value">21</div><div class="kpi-sub">in 7 metro counties + Washington, DC</div></div>
+  <div class="kpi" style="--accent:var(--purple)"><div class="kpi-label">All people reached</div><div class="kpi-value">4,894</div><div class="kpi-sub">44 events, mapped sites</div></div>
+  <div class="kpi" style="--accent:var(--purple)"><div class="kpi-label">Georgia counties reached</div><div class="kpi-value">7</div><div class="kpi-sub">all events</div></div>
+</div>
+<div class="section">
+  <div class="toggle" role="group" aria-label="Which events to show">
+    <button data-view="k12" aria-pressed="true">K–12 school &amp; youth visits</button>
+    <button data-view="all" aria-pressed="false">All events</button>
+    <button class="jump" data-jump="home">Metro Atlanta</button>
+    <button data-jump="dc">Washington, DC</button>
+  </div>
+  <div id="map" role="region" aria-label="Interactive map of outreach sites"></div>
+  <p class="caption">Click a dot for the visits behind it. Scroll or pinch to zoom, drag to pan. Switch to Light or Satellite with the layers button (top right). Labels hide where they would overlap — zoom in to see them all.</p>
+  <p class="caption downloads">Poster images (PNG, 3200×2300): <a href="map_poster_k12.png" download>K–12 map</a><a href="map_poster_all.png" download>All-events map</a> · Plain vector outlines (SVG): <a href="map_k12.svg" download>K–12</a><a href="map_all.svg" download>All events</a></p>
+</div>
+<div class="section">
+  <div class="sec-title">Sites</div>
+  <table><thead><tr><th>Site</th><th>County</th><th class="num">Visits</th><th class="num">People</th></tr></thead>
+  <tbody><tr><td><span class="swatch" style="background:#534AB7"></span>Fernbank Science Center</td><td>DeKalb Co.</td><td class="num">1</td><td class="num">750</td></tr><tr><td><span class="swatch" style="background:#534AB7"></span>Atlanta Science Festival Expo</td><td>Fulton Co.</td><td class="num">1</td><td class="num">609</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Beacon Hill MS</td><td>DeKalb Co.</td><td class="num">8</td><td class="num">575</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Decatur HS</td><td>DeKalb Co.</td><td class="num">7</td><td class="num">405</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Grayson HS</td><td>Gwinnett Co.</td><td class="num">1</td><td class="num">330</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Kittredge Magnet</td><td>DeKalb Co.</td><td class="num">1</td><td class="num">300</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Slater Elementary</td><td>Fulton Co.</td><td class="num">1</td><td class="num">225</td></tr><tr><td><span class="swatch" style="background:#534AB7"></span>GSU Research Showcase</td><td>Fulton Co.</td><td class="num">1</td><td class="num">200</td></tr><tr><td><span class="swatch" style="background:#534AB7"></span>NODCC Meeting <span class="approx">(approx., zip)</span></td><td>Fulton Co.</td><td class="num">1</td><td class="num">200</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Rockdale Magnet</td><td>Rockdale Co.</td><td class="num">3</td><td class="num">195</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Wesley Intl Academy</td><td>Fulton Co.</td><td class="num">1</td><td class="num">151</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Gwinnett Online Campus</td><td>Gwinnett Co.</td><td class="num">3</td><td class="num">118</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>North Gwinnett HS</td><td>Gwinnett Co.</td><td class="num">1</td><td class="num">100</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Agape STEM Summit <span class="approx">(approx., city)</span></td><td>Fulton Co.</td><td class="num">1</td><td class="num">93</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Mundy&#x27;s Mill MS <span class="approx">(approx., city)</span></td><td>Clayton Co.</td><td class="num">1</td><td class="num">80</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Henderson MS</td><td>DeKalb Co.</td><td class="num">1</td><td class="num">80</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Marietta HS</td><td>Cobb Co.</td><td class="num">1</td><td class="num">80</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Atlanta North School <span class="approx">(approx., street)</span></td><td>Fulton Co.</td><td class="num">1</td><td class="num">80</td></tr><tr><td><span class="swatch" style="background:#534AB7"></span>Science ATL fundraiser</td><td>Fulton Co.</td><td class="num">1</td><td class="num">65</td></tr><tr><td><span class="swatch" style="background:#534AB7"></span>Persian Cultural Center <span class="approx">(approx., zip)</span></td><td>Gwinnett Co.</td><td class="num">1</td><td class="num">60</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Crabapple Crossing ES</td><td>Fulton Co.</td><td class="num">1</td><td class="num">44</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Amana Academy</td><td>Fulton Co.</td><td class="num">1</td><td class="num">40</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>National Cathedral School (DC)</td><td>Washington, DC</td><td class="num">1</td><td class="num">30</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Ball Ground STEM Academy</td><td>Cherokee Co.</td><td class="num">1</td><td class="num">25</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Northview HS</td><td>Fulton Co.</td><td class="num">1</td><td class="num">24</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Discovery Montessori</td><td>Fulton Co.</td><td class="num">1</td><td class="num">20</td></tr><tr><td><span class="swatch" style="background:#1D9E75"></span>Maynard Jackson HS</td><td>Fulton Co.</td><td class="num">1</td><td class="num">15</td></tr></tbody></table>
+</div>
+<div class="section">
+  <div class="sec-title">How to read this map</div>
+  <ul class="notes"><li>Dot <strong>area</strong> is proportional to the number of attendees recorded on the event form, summed over every visit to that site. The form records all attendees, not only children — school-night and festival counts include parents and families.</li><li>Venues on one campus are drawn as one dot (e.g. Beacon Hill MS and its Gifted Connections program; Rockdale Magnet and its summer camp).</li><li>Dashed dots are approximate positions: NODCC Meeting (zip); Agape STEM Summit (city); Mundy&#x27;s Mill MS (city); Atlanta North School (street); Persian Cultural Center (zip).</li><li><strong>Not yet mapped</strong> (113 people, 4 visits) — location unknown, add it to <code>venues.csv</code>: Inspiring Engineers (44); Rock Spring ES (40); Alzheimer&#x27;s Luncheon (24); Homeschool Scholar Society (5).</li><li>Map tiles: Esri (streets, light gray, satellite) and OpenStreetMap contributors. Venue coordinates: OpenStreetMap and web search, checked by hand. Poster SVG county outlines: US Census Bureau.</li></ul>
+  <p class="caption mono">Sources: outreach_export_2026-05-25.csv, outreach_export_2026-08-12.csv, outreach_export_2026-11-05.csv + venues.csv</p>
+</div>
+</div>
+<script type="application/json" id="map-data">{"sites": [{"label": "Fernbank Science Center", "audience": "public", "lat": 33.77874, "lon": -84.31808, "attendees": 750, "precision": "venue", "county": "DeKalb Co.", "inset": false, "visits": [{"date": "Oct 24, 2026", "venue": "Fernbank Science Center - Spooky Science", "attendees": 750}]}, {"label": "Atlanta Science Festival Expo", "audience": "public", "lat": 33.76014, "lon": -84.39345, "attendees": 609, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Mar 21, 2026", "venue": "Atlanta Science Festival Expo", "attendees": 609}]}, {"label": "Beacon Hill MS", "audience": "k12", "lat": 33.76754, "lon": -84.29922, "attendees": 575, "precision": "venue", "county": "DeKalb Co.", "inset": false, "visits": [{"date": "Nov 3, 2025", "venue": "Beacon Hill Middle School", "attendees": 50}, {"date": "Nov 6, 2025", "venue": "Beacon Hill Middle School", "attendees": 25}, {"date": "Dec 1, 2025", "venue": "Beacon Hill Middle School", "attendees": 100}, {"date": "Dec 2, 2025", "venue": "Beacon Hill Middle School", "attendees": 100}, {"date": "Dec 3, 2025", "venue": "Beacon Hill Middle School", "attendees": 100}, {"date": "Dec 4, 2025", "venue": "Beacon Hill Middle School", "attendees": 100}, {"date": "Mar 23, 2026", "venue": "Beacon Hill Gifted Connections", "attendees": 50}, {"date": "Mar 24, 2026", "venue": "Beacon Hill Gifted Connections", "attendees": 50}]}, {"label": "Decatur HS", "audience": "k12", "lat": 33.7706, "lon": -84.29785, "attendees": 405, "precision": "venue", "county": "DeKalb Co.", "inset": false, "visits": [{"date": "Sep 17, 2025", "venue": "Decatur High School", "attendees": 30}, {"date": "Sep 18, 2025", "venue": "Decatur High School", "attendees": 40}, {"date": "Sep 29, 2025", "venue": "Decatur High School", "attendees": 24}, {"date": "Sep 30, 2025", "venue": "Decatur High School", "attendees": 75}, {"date": "Sep 28, 2026", "venue": "Decatur High School Psych Class Visits", "attendees": 84}, {"date": "Sep 29, 2026", "venue": "Decatur High School", "attendees": 68}, {"date": "Sep 29, 2026", "venue": "Decatur High School Psychology Classes", "attendees": 84}]}, {"label": "Grayson HS", "audience": "k12", "lat": 33.86848, "lon": -83.92405, "attendees": 330, "precision": "venue", "county": "Gwinnett Co.", "inset": false, "visits": [{"date": "Feb 5, 2026", "venue": "Grayson High School", "attendees": 330}]}, {"label": "Kittredge Magnet", "audience": "k12", "lat": 33.82565, "lon": -84.32794, "attendees": 300, "precision": "venue", "county": "DeKalb Co.", "inset": false, "visits": [{"date": "Jan 29, 2026", "venue": "Kittredge Magnet School Science Night", "attendees": 300}]}, {"label": "Slater Elementary", "audience": "k12", "lat": 33.71837, "lon": -84.39187, "attendees": 225, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Apr 24, 2026", "venue": "Slater Elementary", "attendees": 225}]}, {"label": "GSU Research Showcase", "audience": "public", "lat": 33.75358, "lon": -84.38542, "attendees": 200, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Oct 14, 2025", "venue": "Georgia State University, Undergraduate Research Showcase", "attendees": 200}]}, {"label": "NODCC Meeting", "audience": "public", "lat": 33.66571, "lon": -84.39326, "attendees": 200, "precision": "zip", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Jul 24, 2026", "venue": "National Organization for Disorders of the Corpus Callosum Meeting", "attendees": 200}]}, {"label": "Rockdale Magnet", "audience": "k12", "lat": 33.66902, "lon": -84.00743, "attendees": 195, "precision": "venue", "county": "Rockdale Co.", "inset": false, "visits": [{"date": "Jun 2, 2025", "venue": "Rockdale Magnet School Summer Camp", "attendees": 40}, {"date": "Mar 6, 2026", "venue": "Rockdale Magnet School for Science and Technology", "attendees": 80}, {"date": "Jun 11, 2026", "venue": "Rockdale Magnet School for Science and Technology", "attendees": 75}]}, {"label": "Wesley Intl Academy", "audience": "k12", "lat": 33.74606, "lon": -84.38101, "attendees": 151, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Mar 12, 2026", "venue": "Wesley Academy STEM Night", "attendees": 151}]}, {"label": "Gwinnett Online Campus", "audience": "k12", "lat": 33.98413, "lon": -83.97171, "attendees": 118, "precision": "venue", "county": "Gwinnett Co.", "inset": false, "visits": [{"date": "Sep 5, 2025", "venue": "Gwinnett Online Campus (8th Grade)", "attendees": 40}, {"date": "Sep 12, 2025", "venue": "Gwinnet Online Campus", "attendees": 40}, {"date": "Sep 26, 2025", "venue": "Gwinnett Online Campus (K-5)", "attendees": 38}]}, {"label": "North Gwinnett HS", "audience": "k12", "lat": 34.08542, "lon": -84.07019, "attendees": 100, "precision": "venue", "county": "Gwinnett Co.", "inset": false, "visits": [{"date": "Jan 12, 2026", "venue": "North Gwinnett High School", "attendees": 100}]}, {"label": "Agape STEM Summit", "audience": "k12", "lat": 33.75446, "lon": -84.38981, "attendees": 93, "precision": "city", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Aug 23, 2025", "venue": "Agape Level Up STEM Summit", "attendees": 93}]}, {"label": "Mundy's Mill MS", "audience": "k12", "lat": 33.5215, "lon": -84.35381, "attendees": 80, "precision": "city", "county": "Clayton Co.", "inset": false, "visits": [{"date": "Oct 3, 2025", "venue": "Mundy's Mill Middle School (6th graders)", "attendees": 80}]}, {"label": "Henderson MS", "audience": "k12", "lat": 33.86745, "lon": -84.25284, "attendees": 80, "precision": "venue", "county": "DeKalb Co.", "inset": false, "visits": [{"date": "Oct 22, 2025", "venue": "Henderson Middle School", "attendees": 80}]}, {"label": "Marietta HS", "audience": "k12", "lat": 33.9468, "lon": -84.58568, "attendees": 80, "precision": "venue", "county": "Cobb Co.", "inset": false, "visits": [{"date": "Jan 10, 2026", "venue": "Marietta High School", "attendees": 80}]}, {"label": "Atlanta North School", "audience": "k12", "lat": 33.94628, "lon": -84.33451, "attendees": 80, "precision": "street", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Apr 28, 2026", "venue": "Atlanta North School", "attendees": 80}]}, {"label": "Science ATL fundraiser", "audience": "public", "lat": 33.73706, "lon": -84.38581, "attendees": 65, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "May 14, 2026", "venue": "Science ATL - For the Love of Science", "attendees": 65}]}, {"label": "Persian Cultural Center", "audience": "public", "lat": 33.95023, "lon": -84.20125, "attendees": 60, "precision": "zip", "county": "Gwinnett Co.", "inset": false, "visits": [{"date": "Jun 13, 2026", "venue": "Persian Cultural Center of Atlanta (PCC)", "attendees": 60}]}, {"label": "Crabapple Crossing ES", "audience": "k12", "lat": 34.09321, "lon": -84.33777, "attendees": 44, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Sep 12, 2025", "venue": "Crabapple crossing 4th grade TAG", "attendees": 44}]}, {"label": "Amana Academy", "audience": "k12", "lat": 34.06921, "lon": -84.30248, "attendees": 40, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Feb 24, 2026", "venue": "The Amana Academy", "attendees": 40}]}, {"label": "National Cathedral School (DC)", "audience": "k12", "lat": 38.93221, "lon": -77.07171, "attendees": 30, "precision": "venue", "county": "Washington, DC", "inset": true, "visits": [{"date": "Apr 22, 2026", "venue": "National Cathedral School, Washington DC", "attendees": 30}]}, {"label": "Ball Ground STEM Academy", "audience": "k12", "lat": 34.33292, "lon": -84.38358, "attendees": 25, "precision": "venue", "county": "Cherokee Co.", "inset": false, "visits": [{"date": "Oct 20, 2026", "venue": "Ball Ground STEM Academy - 5th Grade Gifted Classroom Visit", "attendees": 25}]}, {"label": "Northview HS", "audience": "k12", "lat": 34.03912, "lon": -84.17763, "attendees": 24, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Mar 26, 2026", "venue": "Northview High School Neurotroph Neuroscience Club", "attendees": 24}]}, {"label": "Discovery Montessori", "audience": "k12", "lat": 33.66186, "lon": -84.41003, "attendees": 20, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Jun 12, 2025", "venue": "Discovery Montessori", "attendees": 20}]}, {"label": "Maynard Jackson HS", "audience": "k12", "lat": 33.73859, "lon": -84.36111, "attendees": 15, "precision": "venue", "county": "Fulton Co.", "inset": false, "visits": [{"date": "Oct 29, 2025", "venue": "Maynard Jackson High School, Afterschool Neuroscience Club", "attendees": 15}]}]}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+  var DATA=JSON.parse(document.getElementById('map-data').textContent);
+  var HUE={k12:'#1D9E75',public:'#534AB7'};
+  var MAXR=36,MINR=5;
+  var maxAtt=Math.max.apply(null,DATA.sites.map(function(s){return s.attendees;}).concat([1]));
+  function radius(n){return Math.max(MINR,MAXR*Math.sqrt(n/maxAtt));}
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function fmt(n){return n.toLocaleString('en-US');}
+
+  var map=L.map('map',{scrollWheelZoom:true,zoomSnap:0.5,wheelPxPerZoomLevel:90});
+  var ESRI='https://server.arcgisonline.com/ArcGIS/rest/services/';
+  function esri(name,attr){return L.tileLayer(ESRI+name+'/MapServer/tile/{z}/{y}/{x}',{attribution:attr,maxZoom:18});}
+  var bases={
+    'Streets':esri('World_Street_Map','Tiles &copy; Esri — Esri, HERE, Garmin, USGS, OpenStreetMap contributors'),
+    'Light':L.layerGroup([esri('Canvas/World_Light_Gray_Base','Tiles &copy; Esri — Esri, HERE, Garmin, OpenStreetMap contributors'),
+                          esri('Canvas/World_Light_Gray_Reference','')]),
+    'Satellite':L.layerGroup([esri('World_Imagery','Imagery &copy; Esri, Maxar, Earthstar Geographics'),
+                              esri('Reference/World_Boundaries_and_Places','')]),
+    'OpenStreetMap':L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      {attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',maxZoom:19})
+  };
+  bases['Streets'].addTo(map);
+  L.control.layers(bases,null,{position:'topright'}).addTo(map);
+
+  var layer=L.layerGroup().addTo(map), markers=[];
+  function popup(s){
+    var rows=s.visits.map(function(v){return '<tr><td>'+esc(v.date)+'</td><td>'+esc(v.venue)+'</td><td style="text-align:right">'+fmt(v.attendees)+'</td></tr>';}).join('');
+    return '<div class="pop"><div class="pop-title">'+esc(s.label)+'</div>'+
+      '<div class="pop-sub">'+fmt(s.attendees)+' people · '+s.visits.length+' visit'+(s.visits.length>1?'s':'')+
+      (s.county?' · '+esc(s.county):'')+(s.precision!=='venue'?' · approximate location ('+esc(s.precision)+')':'')+'</div>'+
+      '<table>'+rows+'</table></div>';
+  }
+  function draw(aud){
+    layer.clearLayers(); markers=[];
+    DATA.sites.filter(function(s){return !aud||s.audience===aud;})
+      .sort(function(a,b){return b.attendees-a.attendees;})
+      .forEach(function(s){
+        var exact=s.precision==='venue';
+        var m=L.circleMarker([s.lat,s.lon],{radius:radius(s.attendees),color:'#fff',weight:exact?1.5:2,
+          dashArray:exact?null:'4 3',fillColor:HUE[s.audience],fillOpacity:.72});
+        m.bindPopup(popup(s),{maxWidth:360});
+        m.bindTooltip('<span>'+esc(s.label)+'</span><span class="n">'+fmt(s.attendees)+'</span>',
+          {permanent:true,direction:'right',offset:[radius(s.attendees)+2,0],className:'site-label'});
+        m.on('mouseover',function(){m.setStyle({fillOpacity:.95,weight:2.5});});
+        m.on('mouseout',function(){m.setStyle({fillOpacity:.72,weight:exact?1.5:2});});
+        m.addTo(layer); markers.push(m);
+      });
+    // smallest on top so big dots never hide small ones
+    markers.slice().reverse().forEach(function(m){m.bringToFront();});
+    declutter();
+  }
+  // hide labels that would overlap a bigger site's label
+  function declutter(){
+    var kept=[];
+    markers.forEach(function(m){
+      var el=m.getTooltip()&&m.getTooltip().getElement(); if(!el) return;
+      el.style.visibility='visible';
+      var b=el.getBoundingClientRect(), box=[b.left-2,b.top-2,b.right+2,b.bottom+2];
+      var hit=kept.some(function(k){return !(box[2]<k[0]||box[0]>k[2]||box[3]<k[1]||box[1]>k[3]);});
+      if(hit) el.style.visibility='hidden'; else kept.push(box);
+    });
+  }
+  map.on('zoomend moveend',declutter);
+
+  var GA=DATA.sites.filter(function(s){return !s.inset;}).map(function(s){return [s.lat,s.lon];});
+  function home(){map.fitBounds(GA,{padding:[20,20],maxZoom:11});}
+  home();
+
+  // legend
+  var legend=L.control({position:'bottomleft'});
+  legend.onAdd=function(){
+    var d=L.DomUtil.create('div','map-legend');
+    var steps=[100,500,maxAtt>=1500?1500:Math.round(maxAtt)];
+    d.innerHTML='<div class="row"><span class="dot" style="width:11px;height:11px;background:'+HUE.k12+'"></span>K–12 school &amp; youth</div>'+
+      '<div class="row aud-public"><span class="dot" style="width:11px;height:11px;background:'+HUE.public+'"></span>Public &amp; community</div>'+
+      '<div class="sizes">'+steps.map(function(n){var r=radius(n);return '<div><span style="width:'+2*r+'px;height:'+2*r+'px"></span>'+fmt(n)+'</div>';}).join('')+'</div>'+
+      '<div style="font-size:10px;color:#888780;margin-top:3px">people reached · dashed = approximate</div>';
+    return d;
+  };
+  legend.addTo(map);
+
+  var current='k12';
+  function setView(v){
+    current=v; draw(v==='all'?null:'k12');
+    document.querySelectorAll('.toggle button[data-view]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.view===v);});
+    document.querySelectorAll('.kset').forEach(function(el){el.hidden=el.dataset.set!==v;});
+    var pub=document.querySelector('.aud-public'); if(pub) pub.style.display=v==='all'?'flex':'none';
+  }
+  document.querySelectorAll('.toggle button[data-view]').forEach(function(btn){
+    btn.addEventListener('click',function(){setView(btn.dataset.view);});
+  });
+  var dc=DATA.sites.filter(function(s){return s.inset;});
+  document.querySelectorAll('.toggle button[data-jump]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      if(btn.dataset.jump==='home'||!dc.length) home();
+      else map.setView([dc[0].lat,dc[0].lon],12);
+    });
+  });
+  setView('k12');
+})();
+</script>
+</body></html>

@@ -5,7 +5,7 @@ NeuroEngage Outreach Dashboard Generator
 Reads one or more Microsoft Forms CSV exports and writes the dashboard HTML
 plus the cumulative progress report (for Dana Foundation reporting).
 
-    python3 generate_dashboard.py                       # data/*.csv -> docs/index.html + docs/report.html
+    python3 generate_dashboard.py                       # data/*.csv -> docs/index.html + report.html + map.html
     python3 generate_dashboard.py --pdf                 # also print the report to docs/NeuroEngage_Progress_Report.pdf
     python3 generate_dashboard.py -o preview.html
     python3 generate_dashboard.py old.csv new.csv -o out.html
@@ -24,6 +24,9 @@ import subprocess
 import sys
 
 from neuroengage.data import aggregate, build_events
+from neuroengage.landscape import build_landscape
+from neuroengage.mapping import build_map
+from neuroengage.poster import build_poster
 from neuroengage.render import render
 from neuroengage.report import REPORT_START, build_report_data, render_report
 
@@ -32,6 +35,9 @@ DEFAULT_OUTPUT = os.path.join('docs', 'index.html')
 DEFAULT_REPORT = os.path.join('docs', 'report.html')
 DEFAULT_PDF = os.path.join('docs', 'NeuroEngage_Progress_Report.pdf')
 DEFAULT_PPTX = os.path.join('docs', 'NeuroEngage_Progress_Deck.pptx')
+DEFAULT_VENUES = 'venues.csv'
+DEFAULT_HISTORY = 'history.csv'
+DEFAULT_MILESTONES = 'milestones.csv'
 
 CHROME_CANDIDATES = [
     '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
@@ -81,6 +87,7 @@ def main(argv=None):
                         help=f'also print the report to {DEFAULT_PDF} (needs Chrome/Chromium/Edge)')
     parser.add_argument('--pptx', action='store_true',
                         help=f'also build the slide deck at {DEFAULT_PPTX} (needs python-pptx and Chrome)')
+    parser.add_argument('--no-map', action='store_true', help='skip the outreach map (docs/map.html)')
     parser.add_argument('-q', '--quiet', action='store_true', help='only report problems')
     args = parser.parse_args(argv)
 
@@ -175,6 +182,28 @@ def main(argv=None):
                         written.append(f'{DEFAULT_PPTX} ({slide_count} slides)')
         else:
             print(f'  ! no events on or after {args.report_since} — report skipped', file=sys.stderr)
+
+    if not args.no_map:
+        if os.path.exists(DEFAULT_VENUES):
+            map_out = os.path.dirname(os.path.abspath(args.output)) or '.'
+            map_files, _, map_warnings = build_map(events, DEFAULT_VENUES, sources, map_out, chrome=find_chrome())
+            written.extend(os.path.relpath(p) for p in map_files)
+            for warning in map_warnings:
+                print(f'  ! {warning}', file=sys.stderr)
+        else:
+            print(f'  ! {DEFAULT_VENUES} not found — map skipped', file=sys.stderr)
+
+    if os.path.exists(DEFAULT_HISTORY):
+        out_dir = os.path.dirname(os.path.abspath(args.output)) or '.'
+        land_files, _, land_warnings = build_landscape(events, DEFAULT_HISTORY, DEFAULT_MILESTONES, out_dir)
+        written.extend(os.path.relpath(p) for p in land_files)
+        for warning in land_warnings:
+            print(f'  ! {warning}', file=sys.stderr)
+
+    if not args.no_report and report_data['monthly']:
+        out_dir = os.path.dirname(os.path.abspath(args.output)) or '.'
+        poster_files = build_poster(report_data, events, DEFAULT_VENUES, out_dir, chrome=find_chrome())
+        written.append(f'{os.path.relpath(poster_files[0])} (+{len(poster_files) - 1} poster chart files)')
 
     print(f'\nWrote {", ".join(written)}')
     return 0

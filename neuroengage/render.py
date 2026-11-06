@@ -331,7 +331,7 @@ PAGE = """<!DOCTYPE html>
 
 <div class="footer">
   <div class="mono soft" style="font-size:10px;letter-spacing:.08em">NEUROENGAGE &bull; DANA NEXTGEN FELLOWSHIP &bull; GSU</div>
-  <div class="mono" style="font-size:10px"><a href="report.html" style="color:var(--teal-dark);text-decoration:none">Progress report &rarr;</a></div>
+  <div class="mono" style="font-size:10px"><a href="report.html" style="color:var(--teal-dark);text-decoration:none">Progress report &rarr;</a> &nbsp; <a href="map.html" style="color:var(--teal-dark);text-decoration:none">Outreach map &rarr;</a></div>
   <div class="mono soft" style="font-size:10px">__TOTAL_EVENTS__ events &bull; Generated __GENERATED__</div>
 </div>
 

@@ -235,7 +235,11 @@ _NON_PERSON = re.compile(
     re.I,
 )
 _QUOTED_WITH_EMAIL = re.compile(r'"([^"]+)"\s*<[^>]*>')
-_BARE_WITH_EMAIL = re.compile(r'([A-Za-z][A-Za-z.\'\-]*(?:\s+[A-Za-z][A-Za-z.\'\-]*){0,3})\s*<[^>]*>')
+#: The lookbehind stops a match starting inside an address, so
+#: "adunola.obi@gmail.com <adunola.obi@gmail.com>" yields no name (not "gmail.com").
+_BARE_WITH_EMAIL = re.compile(r'(?<![\w.@])([A-Za-z][A-Za-z.\'\-]*(?:\s+[A-Za-z][A-Za-z.\'\-]*){0,3})\s*<[^>]*>')
+#: "(no show)", "(absent)", "(did not come)" — listed but didn't volunteer.
+_NO_SHOW = re.compile(r'\((?:[^)]*\bno[\s-]?show|[^)]*\babsent|[^)]*\bdid ?n[o\']t (?:come|show|attend)|[^)]*\bcancel)[^)]*\)', re.I)
 _PERSON_SPLIT = re.compile(r'\s*(?:;|,|&|\+|\band\b|\bwith\b)\s*', re.I)
 
 
@@ -244,6 +248,8 @@ def _looks_like_person(text):
     if not text or text.lower() in _NON_NAMES:
         return False
     if re.search(r'\d|@|<|>|/', text):
+        return False
+    if re.search(r'\.(?:com|edu|org|net|gov|us)\b', text, re.I):   # a bare domain
         return False
     if not re.search(r'[A-Za-z]', text):
         return False
@@ -275,7 +281,10 @@ def split_people(raw):
             remainder = pattern.sub(' ', remainder)
 
     for chunk in _PERSON_SPLIT.split(remainder):
-        # Trim trailing parentheticals like "(no show)".
+        # Someone marked "(no show)" was listed but did not volunteer — don't count them.
+        if _NO_SHOW.search(chunk):
+            continue
+        # Trim other trailing parentheticals like "(grad student)".
         chunk = re.sub(r'\s*\([^)]*\)\s*$', '', chunk.strip(' .')).strip()
         if _looks_like_person(chunk):
             names.append(chunk)

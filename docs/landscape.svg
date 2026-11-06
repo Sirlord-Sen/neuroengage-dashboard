@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="2400" height="1120" font-family="&#x27;Outfit&#x27;, &#x27;Helvetica Neue&#x27;, Arial, sans-serif">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#EAF4EF"/></linearGradient><linearGradient id="hill" x1="0" y1="150" x2="0" y2="496" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#2FA981"/><stop offset="1" stop-color="#0A5C43"/></linearGradient></defs>
+<rect width="1200" height="560" fill="url(#sky)"/>
+<path d="M56,409.5H1130" stroke="#1C1B18" stroke-opacity=".08" stroke-dasharray="2 4"/>
+<text x="1138.0" y="413.5" text-anchor="start" font-size="11" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">1,000</text>
+<path d="M56,323.0H1130" stroke="#1C1B18" stroke-opacity=".08" stroke-dasharray="2 4"/>
+<text x="1138.0" y="327.0" text-anchor="start" font-size="11" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">2,000</text>
+<path d="M56,236.5H1130" stroke="#1C1B18" stroke-opacity=".08" stroke-dasharray="2 4"/>
+<text x="1138.0" y="240.5" text-anchor="start" font-size="11" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">3,000</text>
+<path d="M56,150.0H1130" stroke="#1C1B18" stroke-opacity=".08" stroke-dasharray="2 4"/>
+<text x="1138.0" y="154.0" text-anchor="start" font-size="11" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">4,000</text>
+<text x="1138.0" y="128.0" text-anchor="start" font-size="9.5" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">PEOPLE</text>
+<text x="1138.0" y="140.0" text-anchor="start" font-size="9.5" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">PER YEAR</text>
+<path d="M56.0,496L56.0,485.6L81.6,485.6C98.6,484.8 115.7,483.5 132.7,483.0C149.8,482.5 166.8,482.9 183.9,482.2C200.9,481.4 218.0,479.0 235.0,477.8C252.0,476.7 269.1,475.2 286.1,475.2C303.2,475.2 320.2,476.1 337.3,476.1C354.3,476.1 371.4,471.6 388.4,470.1C405.5,468.5 422.5,468.3 439.6,466.6C456.6,464.9 473.7,461.4 490.7,459.7C507.8,457.9 524.8,457.7 541.9,456.2C558.9,454.8 576.0,453.2 593.0,451.0C610.0,448.9 627.1,445.8 644.1,443.2C661.2,440.6 678.2,437.6 695.3,435.4C712.3,433.3 729.4,430.3 746.4,430.3C763.5,430.3 780.5,480.4 797.6,480.4C814.6,480.4 831.7,470.0 848.7,462.3C865.8,454.5 882.8,441.8 899.9,433.7C916.9,425.6 934.0,415.5 951.0,413.8C968.0,412.2 985.1,413.7 1002.1,400.9C1019.2,388.0 1036.2,159.3 1053.3,159.3C1070.3,159.3 1087.4,325.5 1104.4,408.5L1130.0,408.5L1130.0,496Z" fill="url(#hill)"/>
+<rect x="56.0" y="140" width="971.7" height="356" fill="#FFFFFF" fill-opacity=".38"/>
+<path d="M56.0,485.6L81.6,485.6C98.6,484.8 115.7,483.5 132.7,483.0C149.8,482.5 166.8,482.9 183.9,482.2C200.9,481.4 218.0,479.0 235.0,477.8C252.0,476.7 269.1,475.2 286.1,475.2C303.2,475.2 320.2,476.1 337.3,476.1C354.3,476.1 371.4,471.6 388.4,470.1C405.5,468.5 422.5,468.3 439.6,466.6C456.6,464.9 473.7,461.4 490.7,459.7C507.8,457.9 524.8,457.7 541.9,456.2C558.9,454.8 576.0,453.2 593.0,451.0C610.0,448.9 627.1,445.8 644.1,443.2C661.2,440.6 678.2,437.6 695.3,435.4C712.3,433.3 729.4,430.3 746.4,430.3C763.5,430.3 780.5,480.4 797.6,480.4C814.6,480.4 831.7,470.0 848.7,462.3C865.8,454.5 882.8,441.8 899.9,433.7C916.9,425.6 934.0,415.5 951.0,413.8C968.0,412.2 985.1,413.7 1002.1,400.9C1019.2,388.0 1036.2,159.3 1053.3,159.3C1070.3,159.3 1087.4,325.5 1104.4,408.5L1130.0,408.5" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+<rect x="0" y="496" width="1200" height="64" fill="#1C1B18"/>
+<g><title>2006–07: 120 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="81.6" cy="485.6" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="56.0" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2007–08: 150 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="132.7" cy="483.0" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="107.1" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2008–09: 160 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="183.9" cy="482.2" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="158.3" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2009–10: 210 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="235.0" cy="477.8" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="209.4" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2010–11: 240 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="286.1" cy="475.2" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="260.6" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2011–12: 230 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="337.3" cy="476.1" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="311.7" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2012–13: 300 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="388.4" cy="470.1" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="362.9" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2013–14: 340 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="439.6" cy="466.6" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="414.0" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2014–15: 420 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="490.7" cy="459.7" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="465.1" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2015–16: 460 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="541.9" cy="456.2" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="516.3" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2016–17: 520 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="593.0" cy="451.0" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="567.4" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2017–18: 610 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="644.1" cy="443.2" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="618.6" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2018–19: 700 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="695.3" cy="435.4" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="669.7" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2019–20: 760 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="746.4" cy="430.3" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="720.9" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2020–21: 180 people · placeholder · PLACEHOLDER — replace with real count (pandemic dip?)</title><circle cx="797.6" cy="480.4" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="772.0" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2021–22: 390 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="848.7" cy="462.3" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="823.1" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2022–23: 720 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="899.9" cy="433.7" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="874.3" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2023–24: 950 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="951.0" cy="413.8" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="925.4" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2024–25: 1,100 people · placeholder · PLACEHOLDER — replace with real count</title><circle cx="1002.1" cy="400.9" r="4.5" fill="#B9B5AA" stroke="#FFFFFF" stroke-width="2"/><rect x="976.6" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2025–26: 3,892 people · event form · NeuroEngage event form</title><circle cx="1053.3" cy="159.3" r="4.5" fill="#1C1B18" stroke="#FFFFFF" stroke-width="2"/><rect x="1027.7" y="130" width="51.1" height="366" fill="transparent"/></g>
+<g><title>2026–27: 1,011 people · event form (so far, through Oct 2026) · NeuroEngage event form</title><circle cx="1104.4" cy="408.5" r="4.5" fill="#1C1B18" stroke="#FFFFFF" stroke-width="2"/><rect x="1078.9" y="130" width="51.1" height="366" fill="transparent"/></g>
+<text x="1053.3" y="147.3" text-anchor="middle" font-size="13" fill="#1C1B18" font-weight="500" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">3,892</text>
+<text x="1104.4" y="396.5" text-anchor="middle" font-size="13" fill="#1C1B18" font-weight="500" paint-order="stroke" stroke="#FFFFFF" stroke-width="4" stroke-linejoin="round">1,011 so far</text>
+<path d="M56.0,496v6" stroke="#888780"/>
+<text x="56.0" y="516.0" text-anchor="middle" font-size="11.5" fill="#C9C9C2" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">2006</text>
+<path d="M107.1,496v3" stroke="#888780"/>
+<path d="M158.3,496v3" stroke="#888780"/>
+<path d="M209.4,496v3" stroke="#888780"/>
+<path d="M260.6,496v3" stroke="#888780"/>
+<path d="M311.7,496v6" stroke="#888780"/>
+<text x="311.7" y="516.0" text-anchor="middle" font-size="11.5" fill="#C9C9C2" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">2011</text>
+<path d="M362.9,496v3" stroke="#888780"/>
+<path d="M414.0,496v3" stroke="#888780"/>
+<path d="M465.1,496v3" stroke="#888780"/>
+<path d="M516.3,496v3" stroke="#888780"/>
+<path d="M567.4,496v6" stroke="#888780"/>
+<text x="567.4" y="516.0" text-anchor="middle" font-size="11.5" fill="#C9C9C2" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">2016</text>
+<path d="M618.6,496v3" stroke="#888780"/>
+<path d="M669.7,496v3" stroke="#888780"/>
+<path d="M720.9,496v3" stroke="#888780"/>
+<path d="M772.0,496v3" stroke="#888780"/>
+<path d="M823.1,496v6" stroke="#888780"/>
+<text x="823.1" y="516.0" text-anchor="middle" font-size="11.5" fill="#C9C9C2" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">2021</text>
+<path d="M874.3,496v3" stroke="#888780"/>
+<path d="M925.4,496v3" stroke="#888780"/>
+<path d="M976.6,496v3" stroke="#888780"/>
+<path d="M1027.7,496v3" stroke="#888780"/>
+<path d="M1078.9,496v6" stroke="#888780"/>
+<text x="1078.9" y="516.0" text-anchor="middle" font-size="11.5" fill="#C9C9C2" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">2026</text>
+<path d="M1130.0,496v3" stroke="#888780"/>
+<text x="56.0" y="546.0" text-anchor="start" font-size="10.5" fill="#888780">Ticks mark the start of each academic year (August); each dot is that year’s total</text>
+<path d="M209.4,480.0V30" stroke="#1C1B18" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/>
+<path d="M209.4,30h12l-3,5l3,5h-12z" fill="#B9B5AA"/>
+<text x="227.4" y="39.0" text-anchor="start" font-size="12.5" fill="#888780"><tspan font-family="&#x27;DM Mono&#x27;, Menlo, monospace" fill="#888780">2009</tspan> Debbie joins GSU (date TBC)</text>
+<path d="M362.9,473.1V64" stroke="#1C1B18" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/>
+<path d="M362.9,64h12l-3,5l3,5h-12z" fill="#B9B5AA"/>
+<text x="380.9" y="73.0" text-anchor="start" font-size="12.5" fill="#888780"><tspan font-family="&#x27;DM Mono&#x27;, Menlo, monospace" fill="#888780">2012</tspan> David joins GSU (date TBC)</text>
+<path d="M537.6,456.5V30" stroke="#1C1B18" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/>
+<path d="M537.6,30h12l-3,5l3,5h-12z" fill="#B9B5AA"/>
+<text x="555.6" y="39.0" text-anchor="start" font-size="12.5" fill="#888780"><tspan font-family="&#x27;DM Mono&#x27;, Menlo, monospace" fill="#888780">2016</tspan> DMAP grant begins (date TBC)</text>
+<path d="M691.0,436.1V64" stroke="#1C1B18" stroke-opacity=".55" stroke-width="1.2" stroke-dasharray="3 3"/>
+<path d="M691.0,64h12l-3,5l3,5h-12z" fill="#B9B5AA"/>
+<text x="709.0" y="73.0" text-anchor="start" font-size="12.5" fill="#888780"><tspan font-family="&#x27;DM Mono&#x27;, Menlo, monospace" fill="#888780">2019</tspan> TReNDS established at GSU (date TBC)</text>
+<path d="M1027.7,280.1V98" stroke="#1C1B18" stroke-opacity=".55" stroke-width="1.2"/>
+<path d="M1027.7,98h-12l3,5l-3,5h12z" fill="#534AB7"/>
+<text x="1009.7" y="107.0" text-anchor="end" font-size="12.5" fill="#1C1B18"><tspan font-family="&#x27;DM Mono&#x27;, Menlo, monospace" fill="#888780">2025</tspan> Dana NextGen fellowship — NeuroEngage</text>
+<text x="593.0" y="190.0" text-anchor="middle" font-size="15" fill="#B07A00" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="3" fill-opacity=".75">DRAFT · PLACEHOLDER NUMBERS — NOT REAL DATA</text>
+</svg>

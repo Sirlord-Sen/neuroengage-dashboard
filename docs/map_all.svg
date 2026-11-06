@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 1341" width="1920" height="2682" font-family="&#x27;Outfit&#x27;, &#x27;Helvetica Neue&#x27;, Arial, sans-serif">
+<rect width="960" height="1341" fill="#FFFFFF"/>
+<defs><clipPath id="clip-all"><rect width="960" height="1341"/></clipPath>
+<clipPath id="zclip-all"><rect x="585.1" y="144.7" width="362.9" height="296.4"/></clipPath>
+</defs>
+<g clip-path="url(#clip-all)">
+<path d="M1099.7,696.6L980.4,707.6L944.8,667.1L873.4,576.2L925.4,425.0L976.4,500.0L1185.4,541.8L1211.9,622.9L1099.7,696.6Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M232.1,1494.0L100.6,1269.1L117.9,1191.7L271.9,1132.8L350.4,1240.9L344.3,1377.3L298.4,1494.0L232.1,1494.0Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M72.1,-135.3L73.1,-93.5L74.1,73.6L-140.0,93.3L-285.8,99.4L-368.4,88.4L-350.0,-140.2L-340.8,-140.2L-340.8,-183.2L-335.7,-183.2L-330.6,-183.2L-191.0,-197.9L-141.0,-167.2L9.9,-184.4L72.1,-135.3Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M675.6,374.7L751.1,340.3L814.3,238.3L783.7,170.7L759.2,67.5L899.9,-39.4L1080.4,-38.2L1132.3,50.3L1077.3,130.1L1127.3,218.6L925.4,425.0L874.4,460.7L675.6,374.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1392.3,530.7L1211.9,622.9L1185.4,541.8L976.4,500.0L925.4,425.0L1127.3,218.6L1270.0,259.2L1349.5,339.0L1392.3,530.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M899.9,-39.4L759.2,67.5L635.8,9.7L545.1,-81.2L547.1,-159.8L578.8,-215.1L702.1,-207.7L802.0,-329.4L885.6,-306.0L865.2,-193.0L899.9,-39.4Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1064.0,1163.5L1071.2,1211.4L918.3,1272.8L879.5,1357.6L817.3,1264.2L695.0,1163.5L714.3,1136.4L715.4,1136.4L767.4,1066.4L826.5,895.6L967.2,1001.3L1065.1,1076.2L1058.9,1086.1L1058.9,1094.7L1065.1,1099.6L1068.1,1108.2L1064.0,1163.5Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-201.2,480.3L-258.3,641.3L-330.6,699.0L-674.2,701.5L-686.5,625.3L-709.9,481.6L-542.7,457.0L-327.6,463.1L-201.2,480.3Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1.7,726.1L-12.6,484.0L-3.4,484.0L2.7,484.0L3.8,484.0L39.4,485.2L41.5,485.2L43.5,485.2L50.6,485.2L51.7,485.2L52.7,485.2L53.7,485.2L68.0,485.2L207.7,488.9L312.7,491.4L349.4,625.3L288.2,701.5L250.5,805.9L150.6,895.6L107.7,820.7L1.7,819.4L1.7,808.4L0.7,805.9L0.7,802.2L1.7,726.1Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-217.5,1533.3L-295.0,1286.3L-127.8,1181.9L117.9,1191.7L100.6,1269.1L232.1,1494.0L220.9,1508.7L230.1,1523.5L228.0,1538.2L-128.8,1534.5L-139.0,1575.1L-217.5,1533.3Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-285.8,99.4L-140.0,93.3L74.1,73.6L68.0,485.2L53.7,485.2L52.7,485.2L51.7,485.2L50.6,485.2L43.5,485.2L41.5,485.2L39.4,485.2L3.8,484.0L2.7,484.0L-3.4,484.0L-12.6,484.0L-201.2,480.3L-327.6,463.1L-285.8,99.4Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M476.8,169.5L475.8,352.5L405.4,352.5L312.7,491.4L207.7,488.9L68.0,485.2L74.1,73.6L145.5,112.9L476.8,112.9L476.8,120.3L476.8,122.8L476.8,169.5Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M344.3,1377.3L350.4,1240.9L271.9,1132.8L271.9,1126.6L271.9,1121.7L271.9,1114.3L271.9,1107.0L272.9,1105.7L271.9,1089.8L271.9,1061.5L272.9,1012.3L367.7,1013.6L372.8,1013.6L383.0,1013.6L451.3,1014.8L453.4,1014.8L450.3,1191.7L378.9,1274.1L378.9,1376.0L344.3,1377.3Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1400.5,-298.7L1401.5,-296.2L1401.5,-295.0L1401.5,-281.5L1414.8,-264.3L1290.4,-9.9L1210.9,-23.4L1132.3,50.3L1080.4,-38.2L1131.3,-98.4L1083.4,-229.9L1124.2,-318.3L1064.0,-403.1L1079.3,-410.5L1088.5,-419.1L1094.6,-430.1L1160.9,-426.5L1199.6,-339.2L1400.5,-298.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M927.4,1647.6L926.4,1635.3L929.5,1627.9L920.3,1615.6L918.3,1593.5L921.3,1588.6L929.5,1512.4L879.5,1357.6L918.3,1272.8L1071.2,1211.4L1064.0,1163.5L1160.9,1237.2L1214.9,1276.5L1210.9,1325.7L1202.7,1598.4L927.4,1647.6Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1473.9,1216.3L1214.9,1276.5L1160.9,1237.2L1064.0,1163.5L1068.1,1108.2L1065.1,1099.6L1058.9,1094.7L1058.9,1086.1L1065.1,1076.2L1243.5,804.7L1345.4,952.1L1485.1,1154.9L1473.9,1216.3Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-330.6,699.0L-258.3,641.3L-201.2,480.3L-12.6,484.0L1.7,726.1L0.7,802.2L0.7,805.9L1.7,808.4L1.7,819.4L1.7,837.9L0.7,840.3L-15.6,840.3L-45.2,845.2L-67.6,850.2L-70.7,851.4L-75.8,851.4L-109.4,852.6L-109.4,856.3L-156.3,857.5L-179.8,850.2L-197.1,844.0L-318.4,812.1L-317.4,699.0L-330.6,699.0Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M715.4,884.6L755.1,846.5L758.2,844.0L786.7,864.9L787.8,866.1L826.5,895.6L767.4,1066.4L715.4,1136.4L714.3,1136.4L695.0,1163.5L601.2,1107.0L564.5,1045.5L554.3,1036.9L552.2,1016.0L633.8,1028.3L681.7,916.5L715.4,884.6Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M228.0,1538.2L230.1,1523.5L220.9,1508.7L232.1,1494.0L298.4,1494.0L344.3,1377.3L378.9,1376.0L585.9,1396.9L634.8,1443.6L613.4,1560.3L487.0,1577.5L280.0,1553.0L233.1,1583.7L237.2,1564.0L228.0,1538.2Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1397.4,305.8L1380.1,328.0L1351.5,334.1L1349.5,339.0L1270.0,259.2L1127.3,218.6L1077.3,130.1L1132.3,50.3L1210.9,-23.4L1290.4,-9.9L1337.3,6.0L1353.6,14.6L1357.7,181.7L1397.4,305.8Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M879.5,1357.6L929.5,1512.4L921.3,1588.6L698.0,1560.3L613.4,1560.3L634.8,1443.6L696.0,1399.4L694.0,1400.6L694.0,1399.4L817.3,1264.2L879.5,1357.6Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M476.8,169.5L476.8,122.8L476.8,120.3L476.8,112.9L477.8,7.3L413.6,6.0L387.1,-110.7L479.9,-116.8L539.0,-178.3L547.1,-166.0L547.1,-159.8L545.1,-81.2L635.8,9.7L759.2,67.5L783.7,170.7L476.8,169.5Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M476.8,169.5L783.7,170.7L814.3,238.3L751.1,340.3L675.6,374.7L663.4,379.6L643.0,418.9L636.9,450.8L634.8,453.3L632.8,455.7L630.7,458.2L627.7,460.7L619.5,501.2L639.9,518.4L535.9,470.5L475.8,445.9L475.8,352.5L476.8,169.5Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M480.9,1014.8L453.4,1014.8L451.3,1014.8L383.0,1013.6L383.0,993.9L385.0,761.7L385.0,755.6L385.0,753.1L384.0,750.6L385.0,746.9L385.0,743.3L385.0,729.7L385.0,726.1L385.0,712.5L385.0,697.8L385.0,681.8L385.0,680.6L385.0,670.8L385.0,657.3L457.4,632.7L458.5,637.6L462.5,635.1L468.6,645.0L462.5,648.7L469.7,663.4L475.8,680.6L478.8,686.7L485.0,690.4L503.3,701.5L518.6,722.4L530.8,732.2L531.9,737.1L549.2,745.7L557.3,748.2L564.5,755.6L715.4,884.6L681.7,916.5L633.8,1028.3L552.2,1016.0L511.5,1014.8L511.5,1034.5L490.1,1034.5L480.9,1014.8Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-45.2,845.2L-15.6,840.3L0.7,840.3L1.7,837.9L1.7,819.4L107.7,820.7L150.6,895.6L141.4,914.1L134.2,914.1L126.1,920.2L120.0,933.7L106.7,943.5L95.5,949.7L97.5,958.3L-27.9,1035.7L-38.0,1055.4L-51.3,1060.3L-81.9,1089.8L-84.9,1104.5L-183.8,1105.7L-180.8,997.6L-179.8,850.2L-156.3,857.5L-109.4,856.3L-109.4,852.6L-75.8,851.4L-70.7,851.4L-67.6,850.2L-45.2,845.2Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-27.9,1035.7L97.5,958.3L95.5,949.7L106.7,943.5L120.0,933.7L126.1,920.2L134.2,914.1L141.4,914.1L150.6,895.6L250.5,805.9L288.2,701.5L349.4,625.3L312.7,491.4L405.4,352.5L475.8,352.5L475.8,445.9L535.9,470.5L639.9,518.4L457.4,632.7L385.0,657.3L385.0,670.8L385.0,680.6L385.0,681.8L385.0,697.8L385.0,712.5L385.0,726.1L385.0,729.7L385.0,743.3L385.0,746.9L384.0,750.6L385.0,753.1L385.0,755.6L385.0,761.7L383.0,993.9L383.0,1013.6L372.8,1013.6L367.7,1013.6L272.9,1012.3L271.9,1061.5L271.9,1089.8L272.9,1105.7L271.9,1107.0L271.9,1114.3L271.9,1121.7L271.9,1126.6L271.9,1132.8L117.9,1191.7L-127.8,1181.9L-84.9,1104.5L-81.9,1089.8L-51.3,1060.3L-38.0,1055.4L-27.9,1035.7Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1243.5,804.7L1099.7,696.6L1211.9,622.9L1478.0,767.8L1473.9,873.5L1345.4,952.1L1243.5,804.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M73.1,-93.5L387.1,-110.7L413.6,6.0L477.8,7.3L476.8,112.9L145.5,112.9L74.1,73.6L73.1,-93.5Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M826.5,895.6L787.8,866.1L786.7,864.9L758.2,844.0L944.8,667.1L980.4,707.6L1099.7,696.6L1243.5,804.7L1065.1,1076.2L967.2,1001.3L826.5,895.6Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M627.7,460.7L630.7,458.2L632.8,455.7L634.8,453.3L636.9,450.8L643.0,418.9L663.4,379.6L675.6,374.7L874.4,460.7L925.4,425.0L873.4,576.2L944.8,667.1L758.2,844.0L755.1,846.5L715.4,884.6L564.5,755.6L557.3,748.2L549.2,745.7L531.9,737.1L530.8,732.2L518.6,722.4L503.3,701.5L485.0,690.4L478.8,686.7L475.8,680.6L469.7,663.4L462.5,648.7L468.6,645.0L462.5,635.1L458.5,637.6L457.4,632.7L639.9,518.4L619.5,501.2L627.7,460.7Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M450.3,1191.7L453.4,1014.8L480.9,1014.8L490.1,1034.5L511.5,1034.5L511.5,1014.8L552.2,1016.0L554.3,1036.9L564.5,1045.5L601.2,1107.0L695.0,1163.5L817.3,1264.2L694.0,1399.4L694.0,1400.6L696.0,1399.4L634.8,1443.6L585.9,1396.9L378.9,1376.0L378.9,1274.1L450.3,1191.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-624.3,1007.4L-331.7,931.3L-318.4,812.1L-197.1,844.0L-179.8,850.2L-180.8,997.6L-183.8,1105.7L-84.9,1104.5L-127.8,1181.9L-295.0,1286.3L-579.4,1283.9L-589.6,1216.3L-599.8,1158.6L-600.8,1151.2L-608.0,1104.5L-624.3,1007.4Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<text x="930.4" y="1135.1" text-anchor="middle" font-size="9.0" fill="#B9B5AA" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">NEWTON</text>
+<text x="82.7" y="613.4" text-anchor="middle" font-size="9.0" fill="#B9B5AA" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">COBB</text>
+<text x="339.4" y="254.3" text-anchor="middle" font-size="9.0" fill="#B9B5AA" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">CHEROKEE</text>
+<text x="336.2" y="1139.0" text-anchor="middle" font-size="9.0" fill="#B9B5AA" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">CLAYTON</text>
+<text x="267.7" y="859.5" text-anchor="middle" font-size="9.0" fill="#B9B5AA" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">FULTON</text>
+<text x="559.7" y="1191.0" text-anchor="middle" font-size="9.0" fill="#B9B5AA" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">HENRY</text>
+</g>
+<g><title>Fernbank Science Center — 750 people, 1 visit
+Oct 24, 2026 · Fernbank Science Center - Spooky Science · 750</title><circle cx="415.6" cy="852.9" r="40.3" fill="#534AB7" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="415.6" cy="852.9" r="48.3" fill="transparent"/></g>
+<g><title>Atlanta Science Festival Expo — 609 people, 1 visit
+Mar 21, 2026 · Atlanta Science Festival Expo · 609</title><circle cx="338.7" cy="875.8" r="36.3" fill="#534AB7" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="338.7" cy="875.8" r="44.3" fill="transparent"/></g>
+<g><title>Beacon Hill MS — 575 people, 8 visits
+Nov 3, 2025 · Beacon Hill Middle School · 50
+Nov 6, 2025 · Beacon Hill Middle School · 25
+Dec 1, 2025 · Beacon Hill Middle School · 100
+Dec 2, 2025 · Beacon Hill Middle School · 100
+Dec 3, 2025 · Beacon Hill Middle School · 100
+Dec 4, 2025 · Beacon Hill Middle School · 100
+Mar 23, 2026 · Beacon Hill Gifted Connections · 50
+Mar 24, 2026 · Beacon Hill Gifted Connections · 50</title><circle cx="434.8" cy="866.7" r="35.3" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="434.8" cy="866.7" r="43.3" fill="transparent"/></g>
+<g><title>Decatur HS — 405 people, 7 visits
+Sep 17, 2025 · Decatur High School · 30
+Sep 18, 2025 · Decatur High School · 40
+Sep 29, 2025 · Decatur High School · 24
+Sep 30, 2025 · Decatur High School · 75
+Sep 28, 2026 · Decatur High School Psych Class Visits · 84
+Sep 29, 2026 · Decatur High School · 68
+Sep 29, 2026 · Decatur High School Psychology Classes · 84</title><circle cx="436.2" cy="862.9" r="29.6" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="436.2" cy="862.9" r="37.6" fill="transparent"/></g>
+<g><title>Grayson HS — 330 people, 1 visit
+Feb 5, 2026 · Grayson High School · 330</title><circle cx="817.3" cy="742.7" r="26.7" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="817.3" cy="742.7" r="34.7" fill="transparent"/></g>
+<g><title>Kittredge Magnet — 300 people, 1 visit
+Jan 29, 2026 · Kittredge Magnet School Science Night · 300</title><circle cx="405.5" cy="795.3" r="25.5" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="405.5" cy="795.3" r="33.5" fill="transparent"/></g>
+<g><title>Slater Elementary — 225 people, 1 visit
+Apr 24, 2026 · Slater Elementary · 225</title><circle cx="340.3" cy="927.1" r="22.1" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="340.3" cy="927.1" r="30.1" fill="transparent"/></g>
+<g><title>NODCC Meeting — 200 people, 1 visit
+Jul 24, 2026 · National Organization for Disorders of the Corpus Callosum Meeting · 200
+Approximate position (zip)</title><circle cx="338.9" cy="991.8" r="20.8" fill="#534AB7" fill-opacity="0.35" stroke="#534AB7" stroke-width="2" stroke-dasharray="3 2"/><circle cx="338.9" cy="991.8" r="28.8" fill="transparent"/></g>
+<g><title>GSU Research Showcase — 200 people, 1 visit
+Oct 14, 2025 · Georgia State University, Undergraduate Research Showcase · 200</title><circle cx="346.9" cy="883.9" r="20.8" fill="#534AB7" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="346.9" cy="883.9" r="28.8" fill="transparent"/></g>
+<g><title>Rockdale Magnet — 195 people, 3 visits
+Jun 2, 2025 · Rockdale Magnet School Summer Camp · 40
+Mar 6, 2026 · Rockdale Magnet School for Science and Technology · 80
+Jun 11, 2026 · Rockdale Magnet School for Science and Technology · 75</title><circle cx="732.3" cy="987.8" r="20.6" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="732.3" cy="987.8" r="28.6" fill="transparent"/></g>
+<g><title>Wesley Intl Academy — 151 people, 1 visit
+Mar 12, 2026 · Wesley Academy STEM Night · 151</title><circle cx="351.4" cy="893.1" r="18.1" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="351.4" cy="893.1" r="26.1" fill="transparent"/></g>
+<g><title>Gwinnett Online Campus — 118 people, 3 visits
+Sep 5, 2025 · Gwinnett Online Campus (8th Grade) · 40
+Sep 12, 2025 · Gwinnet Online Campus · 40
+Sep 26, 2025 · Gwinnett Online Campus (K-5) · 38</title><circle cx="768.7" cy="600.6" r="16.0" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="768.7" cy="600.6" r="24.0" fill="transparent"/></g>
+<g><title>North Gwinnett HS — 100 people, 1 visit
+Jan 12, 2026 · North Gwinnett High School · 100</title><circle cx="668.3" cy="476.1" r="14.7" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="668.3" cy="476.1" r="22.7" fill="transparent"/></g>
+<g><title>Agape STEM Summit — 93 people, 1 visit
+Aug 23, 2025 · Agape Level Up STEM Summit · 93
+Approximate position (city)</title><circle cx="342.4" cy="882.8" r="14.2" fill="#1D9E75" fill-opacity="0.35" stroke="#1D9E75" stroke-width="2" stroke-dasharray="3 2"/><circle cx="342.4" cy="882.8" r="22.2" fill="transparent"/></g>
+<g><title>Mundy&#x27;s Mill MS — 80 people, 1 visit
+Oct 3, 2025 · Mundy&#x27;s Mill Middle School (6th graders) · 80
+Approximate position (city)</title><circle cx="379.1" cy="1169.0" r="13.2" fill="#1D9E75" fill-opacity="0.35" stroke="#1D9E75" stroke-width="2" stroke-dasharray="3 2"/><circle cx="379.1" cy="1169.0" r="21.2" fill="transparent"/></g>
+<g><title>Henderson MS — 80 people, 1 visit
+Oct 22, 2025 · Henderson Middle School · 80</title><circle cx="482.1" cy="743.9" r="13.2" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="482.1" cy="743.9" r="21.2" fill="transparent"/></g>
+<g><title>Marietta HS — 80 people, 1 visit
+Jan 10, 2026 · Marietta High School · 80</title><circle cx="142.7" cy="646.4" r="13.2" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="142.7" cy="646.4" r="21.2" fill="transparent"/></g>
+<g><title>Atlanta North School — 80 people, 1 visit
+Apr 28, 2026 · Atlanta North School · 80
+Approximate position (street)</title><circle cx="398.8" cy="647.1" r="13.2" fill="#1D9E75" fill-opacity="0.35" stroke="#1D9E75" stroke-width="2" stroke-dasharray="3 2"/><circle cx="398.8" cy="647.1" r="21.2" fill="transparent"/></g>
+<g><title>Science ATL fundraiser — 65 people, 1 visit
+May 14, 2026 · Science ATL - For the Love of Science · 65</title><circle cx="346.5" cy="904.1" r="11.9" fill="#534AB7" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="346.5" cy="904.1" r="19.9" fill="transparent"/></g>
+<g><title>Persian Cultural Center — 60 people, 1 visit
+Jun 13, 2026 · Persian Cultural Center of Atlanta (PCC) · 60
+Approximate position (zip)</title><circle cx="534.7" cy="642.2" r="11.4" fill="#534AB7" fill-opacity="0.35" stroke="#534AB7" stroke-width="2" stroke-dasharray="3 2"/><circle cx="534.7" cy="642.2" r="19.4" fill="transparent"/></g>
+<g><title>Crabapple Crossing ES — 44 people, 1 visit
+Sep 12, 2025 · Crabapple crossing 4th grade TAG · 44</title><circle cx="395.5" cy="466.5" r="9.8" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="395.5" cy="466.5" r="17.8" fill="transparent"/></g>
+<g><title>Amana Academy — 40 people, 1 visit
+Feb 24, 2026 · The Amana Academy · 40</title><circle cx="431.5" cy="496.0" r="9.3" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="431.5" cy="496.0" r="17.3" fill="transparent"/></g>
+<g><title>Ball Ground STEM Academy — 25 people, 1 visit
+Oct 20, 2026 · Ball Ground STEM Academy - 5th Grade Gifted Classroom Visit · 25</title><circle cx="348.8" cy="172.0" r="7.4" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="348.8" cy="172.0" r="15.4" fill="transparent"/></g>
+<g><title>Northview HS — 24 people, 1 visit
+Mar 26, 2026 · Northview High School Neurotroph Neuroscience Club · 24</title><circle cx="558.7" cy="533.0" r="7.2" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="558.7" cy="533.0" r="15.2" fill="transparent"/></g>
+<g><title>Discovery Montessori — 20 people, 1 visit
+Jun 12, 2025 · Discovery Montessori · 20</title><circle cx="321.8" cy="996.5" r="6.6" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="321.8" cy="996.5" r="14.6" fill="transparent"/></g>
+<g><title>Maynard Jackson HS — 15 people, 1 visit
+Oct 29, 2025 · Maynard Jackson High School, Afterschool Neuroscience Club · 15</title><circle cx="371.7" cy="902.3" r="5.7" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="371.7" cy="902.3" r="13.7" fill="transparent"/></g>
+<text x="848.0" y="746.5" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Grayson HS <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">330</tspan></text>
+<text x="435.0" y="799.2" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Kittredge Magnet <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">300</tspan></text>
+<text x="363.7" y="995.7" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">NODCC Meeting <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">200</tspan></text>
+<text x="756.8" y="991.6" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Rockdale Magnet <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">195</tspan></text>
+<text x="748.7" y="604.4" text-anchor="end" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Gwinnett Online Campus <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">118</tspan></text>
+<text x="687.0" y="480.0" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">North Gwinnett HS <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">100</tspan></text>
+<text x="396.3" y="1172.9" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Mundy&#x27;s Mill MS <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">80</tspan></text>
+<text x="499.2" y="747.8" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Henderson MS <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">80</tspan></text>
+<text x="159.9" y="650.3" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Marietta HS <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">80</tspan></text>
+<text x="398.8" y="626.9" text-anchor="middle" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Atlanta North School <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">80</tspan></text>
+<text x="550.1" y="646.1" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Persian Cultural Center <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">60</tspan></text>
+<text x="409.2" y="470.4" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Crabapple Crossing ES <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">44</tspan></text>
+<text x="444.8" y="499.9" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Amana Academy <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">40</tspan></text>
+<text x="360.1" y="175.9" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Ball Ground STEM Academy <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">25</tspan></text>
+<text x="570.0" y="536.9" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Northview HS <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">24</tspan></text>
+<text x="311.2" y="1000.4" text-anchor="end" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Discovery Montessori <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">20</tspan></text>
+<rect x="311.6" y="823.1" width="155.0" height="126.6" fill="none" stroke="#4A4945" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="585.1" y="144.7" width="362.9" height="296.4" fill="#FFFFFF" stroke="#4A4945" stroke-width="1"/>
+<g clip-path="url(#zclip-all)">
+<path d="M2430.6,-151.7L2151.2,-125.8L2067.7,-220.7L1900.6,-433.7L2022.3,-787.5L2141.7,-612.0L2631.1,-514.2L2693.2,-324.3L2430.6,-151.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M398.9,1715.6L90.9,1189.1L131.5,1007.8L492.0,869.7L675.8,1122.9L661.5,1442.3L554.1,1715.6L398.9,1715.6Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M24.1,-2099.6L26.5,-2001.7L28.9,-1610.4L-472.5,-1564.4L-813.9,-1550.0L-1007.3,-1575.9L-964.3,-2111.1L-942.8,-2111.1L-942.8,-2211.8L-930.9,-2211.8L-918.9,-2211.8L-591.9,-2246.3L-474.9,-2174.4L-121.5,-2214.7L24.1,-2099.6Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1437.4,-905.5L1614.1,-986.1L1762.1,-1224.9L1690.5,-1383.1L1633.2,-1624.8L1962.6,-1875.1L2385.2,-1872.3L2507.0,-1665.1L2378.0,-1478.1L2495.0,-1270.9L2022.3,-787.5L1902.9,-704.1L1437.4,-905.5Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M3115.7,-540.1L2693.2,-324.3L2631.1,-514.2L2141.7,-612.0L2022.3,-787.5L2495.0,-1270.9L2829.2,-1176.0L3015.5,-989.0L3115.7,-540.1Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1962.6,-1875.1L1633.2,-1624.8L1344.3,-1760.1L1131.8,-1973.0L1136.6,-2157.1L1210.6,-2286.6L1499.5,-2269.3L1733.4,-2554.2L1929.2,-2499.5L1881.5,-2234.8L1962.6,-1875.1Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M2347.0,941.7L2363.7,1053.9L2005.6,1197.7L1914.9,1396.3L1769.3,1177.6L1482.8,941.7L1528.1,878.4L1530.5,878.4L1652.3,714.4L1790.7,314.4L2120.2,561.9L2349.4,737.4L2335.1,760.4L2335.1,780.5L2349.4,792.0L2356.5,812.2L2347.0,941.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-615.7,-658.1L-749.4,-281.2L-918.9,-145.9L-1723.5,-140.2L-1752.1,-318.6L-1807.0,-655.2L-1415.5,-712.7L-911.8,-698.4L-615.7,-658.1Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-140.6,-82.6L-174.1,-649.4L-152.6,-649.4L-138.3,-649.4L-135.9,-649.4L-52.3,-646.6L-47.5,-646.6L-42.8,-646.6L-26.0,-646.6L-23.7,-646.6L-21.3,-646.6L-18.9,-646.6L14.5,-646.6L341.6,-637.9L587.5,-632.2L673.5,-318.6L530.2,-140.2L441.9,104.4L207.9,314.4L107.6,138.9L-140.6,136.0L-140.6,110.1L-143.0,104.4L-143.0,95.8L-140.6,-82.6Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-653.9,1807.7L-835.4,1229.4L-443.8,984.8L131.5,1007.8L90.9,1189.1L398.9,1715.6L372.6,1750.2L394.1,1784.7L389.4,1819.2L-446.2,1810.6L-470.1,1905.5L-653.9,1807.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-813.9,-1550.0L-472.5,-1564.4L28.9,-1610.4L14.5,-646.6L-18.9,-646.6L-21.3,-646.6L-23.7,-646.6L-26.0,-646.6L-42.8,-646.6L-47.5,-646.6L-52.3,-646.6L-135.9,-649.4L-138.3,-649.4L-152.6,-649.4L-174.1,-649.4L-615.7,-658.1L-911.8,-698.4L-813.9,-1550.0Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M971.9,-1386.0L969.5,-957.3L804.8,-957.3L587.5,-632.2L341.6,-637.9L14.5,-646.6L28.9,-1610.4L196.0,-1518.4L971.9,-1518.4L971.9,-1501.1L971.9,-1495.3L971.9,-1386.0Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M661.5,1442.3L675.8,1122.9L492.0,869.7L492.0,855.3L492.0,843.8L492.0,826.6L492.0,809.3L494.4,806.4L492.0,769.0L492.0,702.9L494.4,587.8L716.4,590.6L728.4,590.6L752.2,590.6L912.2,593.5L917.0,593.5L909.8,1007.8L742.7,1200.6L742.7,1439.4L661.5,1442.3Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M3134.8,-2482.2L3137.2,-2476.5L3137.2,-2473.6L3137.2,-2442.0L3168.3,-2401.7L2877.0,-1806.1L2690.8,-1837.7L2507.0,-1665.1L2385.2,-1872.3L2504.6,-2013.2L2392.4,-2321.1L2487.9,-2528.3L2347.0,-2726.8L2382.8,-2744.1L2404.3,-2764.2L2418.6,-2790.1L2573.8,-2781.5L2664.5,-2577.2L3134.8,-2482.2Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M2027.1,2075.3L2024.7,2046.5L2031.9,2029.3L2010.4,2000.5L2005.6,1948.7L2012.8,1937.2L2031.9,1758.8L1914.9,1396.3L2005.6,1197.7L2363.7,1053.9L2347.0,941.7L2573.8,1114.3L2700.3,1206.4L2690.8,1321.5L2671.7,1960.2L2027.1,2075.3Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M3306.7,1065.4L2700.3,1206.4L2573.8,1114.3L2347.0,941.7L2356.5,812.2L2349.4,792.0L2335.1,780.5L2335.1,760.4L2349.4,737.4L2767.2,101.5L3005.9,446.8L3333.0,921.5L3306.7,1065.4Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-918.9,-145.9L-749.4,-281.2L-615.7,-658.1L-174.1,-649.4L-140.6,-82.6L-143.0,95.8L-143.0,104.4L-140.6,110.1L-140.6,136.0L-140.6,179.2L-143.0,185.0L-181.2,185.0L-250.5,196.5L-303.0,208.0L-310.1,210.8L-322.1,210.8L-400.9,213.7L-400.9,222.4L-510.7,225.2L-565.6,208.0L-606.2,193.6L-890.3,118.8L-887.9,-145.9L-918.9,-145.9Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1530.5,288.5L1623.6,199.3L1630.8,193.6L1697.6,242.5L1700.0,245.4L1790.7,314.4L1652.3,714.4L1530.5,878.4L1528.1,878.4L1482.8,941.7L1263.1,809.3L1177.2,665.4L1153.3,645.3L1148.5,596.4L1339.5,625.2L1451.7,363.3L1530.5,288.5Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M389.4,1819.2L394.1,1784.7L372.6,1750.2L398.9,1715.6L554.1,1715.6L661.5,1442.3L742.7,1439.4L1227.3,1488.3L1341.9,1597.7L1291.8,1871.0L995.7,1911.3L511.1,1853.7L401.3,1925.7L410.8,1879.6L389.4,1819.2Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M3127.7,-1066.6L3087.1,-1014.8L3020.2,-1000.5L3015.5,-989.0L2829.2,-1176.0L2495.0,-1270.9L2378.0,-1478.1L2507.0,-1665.1L2690.8,-1837.7L2877.0,-1806.1L2986.8,-1768.7L3025.0,-1748.5L3034.6,-1357.2L3127.7,-1066.6Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1914.9,1396.3L2031.9,1758.8L2012.8,1937.2L1489.9,1871.0L1291.8,1871.0L1341.9,1597.7L1485.2,1494.1L1480.4,1497.0L1480.4,1494.1L1769.3,1177.6L1914.9,1396.3Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M971.9,-1386.0L971.9,-1495.3L971.9,-1501.1L971.9,-1518.4L974.3,-1765.8L823.9,-1768.7L761.8,-2042.0L979.0,-2056.4L1117.5,-2200.3L1136.6,-2171.5L1136.6,-2157.1L1131.8,-1973.0L1344.3,-1760.1L1633.2,-1624.8L1690.5,-1383.1L971.9,-1386.0Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M971.9,-1386.0L1690.5,-1383.1L1762.1,-1224.9L1614.1,-986.1L1437.4,-905.5L1408.8,-894.0L1361.0,-801.9L1346.7,-727.1L1341.9,-721.4L1337.1,-715.6L1332.4,-709.9L1325.2,-704.1L1306.1,-609.2L1353.9,-568.9L1110.3,-681.1L969.5,-738.6L969.5,-957.3L971.9,-1386.0Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M981.4,593.5L917.0,593.5L912.2,593.5L752.2,590.6L752.2,544.6L757.0,0.8L757.0,-13.6L757.0,-19.3L754.6,-25.1L757.0,-33.7L757.0,-42.3L757.0,-74.0L757.0,-82.6L757.0,-114.3L757.0,-148.8L757.0,-186.2L757.0,-189.1L757.0,-212.1L757.0,-243.8L926.5,-301.3L928.9,-289.8L938.5,-295.5L952.8,-272.5L938.5,-263.9L955.2,-229.4L969.5,-189.1L976.6,-174.7L991.0,-166.1L1033.9,-140.2L1069.8,-91.3L1098.4,-68.2L1100.8,-56.7L1141.4,-36.6L1160.5,-30.8L1177.2,-13.6L1530.5,288.5L1451.7,363.3L1339.5,625.2L1148.5,596.4L1053.0,593.5L1053.0,639.6L1002.9,639.6L981.4,593.5Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-250.5,196.5L-181.2,185.0L-143.0,185.0L-140.6,179.2L-140.6,136.0L107.6,138.9L207.9,314.4L186.4,357.6L169.7,357.6L150.6,372.0L136.3,403.6L105.3,426.6L79.0,441.0L83.8,461.2L-209.9,642.4L-233.7,688.5L-264.8,700.0L-336.4,769.0L-343.6,803.6L-575.1,806.4L-568.0,553.2L-565.6,208.0L-510.7,225.2L-400.9,222.4L-400.9,213.7L-322.1,210.8L-310.1,210.8L-303.0,208.0L-250.5,196.5Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-209.9,642.4L83.8,461.2L79.0,441.0L105.3,426.6L136.3,403.6L150.6,372.0L169.7,357.6L186.4,357.6L207.9,314.4L441.9,104.4L530.2,-140.2L673.5,-318.6L587.5,-632.2L804.8,-957.3L969.5,-957.3L969.5,-738.6L1110.3,-681.1L1353.9,-568.9L926.5,-301.3L757.0,-243.8L757.0,-212.1L757.0,-189.1L757.0,-186.2L757.0,-148.8L757.0,-114.3L757.0,-82.6L757.0,-74.0L757.0,-42.3L757.0,-33.7L754.6,-25.1L757.0,-19.3L757.0,-13.6L757.0,0.8L752.2,544.6L752.2,590.6L728.4,590.6L716.4,590.6L494.4,587.8L492.0,702.9L492.0,769.0L494.4,806.4L492.0,809.3L492.0,826.6L492.0,843.8L492.0,855.3L492.0,869.7L131.5,1007.8L-443.8,984.8L-343.6,803.6L-336.4,769.0L-264.8,700.0L-233.7,688.5L-209.9,642.4Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M2767.2,101.5L2430.6,-151.7L2693.2,-324.3L3316.3,15.2L3306.7,262.6L3005.9,446.8L2767.2,101.5Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M26.5,-2001.7L761.8,-2042.0L823.9,-1768.7L974.3,-1765.8L971.9,-1518.4L196.0,-1518.4L28.9,-1610.4L26.5,-2001.7Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1790.7,314.4L1700.0,245.4L1697.6,242.5L1630.8,193.6L2067.7,-220.7L2151.2,-125.8L2430.6,-151.7L2767.2,101.5L2349.4,737.4L2120.2,561.9L1790.7,314.4Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M1325.2,-704.1L1332.4,-709.9L1337.1,-715.6L1341.9,-721.4L1346.7,-727.1L1361.0,-801.9L1408.8,-894.0L1437.4,-905.5L1902.9,-704.1L2022.3,-787.5L1900.6,-433.7L2067.7,-220.7L1630.8,193.6L1623.6,199.3L1530.5,288.5L1177.2,-13.6L1160.5,-30.8L1141.4,-36.6L1100.8,-56.7L1098.4,-68.2L1069.8,-91.3L1033.9,-140.2L991.0,-166.1L976.6,-174.7L969.5,-189.1L955.2,-229.4L938.5,-263.9L952.8,-272.5L938.5,-295.5L928.9,-289.8L926.5,-301.3L1353.9,-568.9L1306.1,-609.2L1325.2,-704.1Z" fill="#F1F0EC" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M909.8,1007.8L917.0,593.5L981.4,593.5L1002.9,639.6L1053.0,639.6L1053.0,593.5L1148.5,596.4L1153.3,645.3L1177.2,665.4L1263.1,809.3L1482.8,941.7L1769.3,1177.6L1480.4,1494.1L1480.4,1497.0L1485.2,1494.1L1341.9,1597.7L1227.3,1488.3L742.7,1439.4L742.7,1200.6L909.8,1007.8Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<path d="M-1606.5,576.3L-921.3,397.9L-890.3,118.8L-606.2,193.6L-565.6,208.0L-568.0,553.2L-575.1,806.4L-343.6,803.6L-443.8,984.8L-835.4,1229.4L-1501.4,1223.6L-1525.3,1065.4L-1549.2,930.2L-1551.6,912.9L-1568.3,803.6L-1606.5,576.3Z" fill="#FAF8F3" stroke="#D9D5CA" stroke-width="0.8"/>
+<g><title>Fernbank Science Center — 750 people, 1 visit
+Oct 24, 2026 · Fernbank Science Center - Spooky Science · 750</title><circle cx="828.4" cy="214.5" r="40.3" fill="#534AB7" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="828.4" cy="214.5" r="48.3" fill="transparent"/></g>
+<g><title>Atlanta Science Festival Expo — 609 people, 1 visit
+Mar 21, 2026 · Atlanta Science Festival Expo · 609</title><circle cx="648.5" cy="268.0" r="36.3" fill="#534AB7" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="648.5" cy="268.0" r="44.3" fill="transparent"/></g>
+<g><title>Beacon Hill MS — 575 people, 8 visits
+Nov 3, 2025 · Beacon Hill Middle School · 50
+Nov 6, 2025 · Beacon Hill Middle School · 25
+Dec 1, 2025 · Beacon Hill Middle School · 100
+Dec 2, 2025 · Beacon Hill Middle School · 100
+Dec 3, 2025 · Beacon Hill Middle School · 100
+Dec 4, 2025 · Beacon Hill Middle School · 100
+Mar 23, 2026 · Beacon Hill Gifted Connections · 50
+Mar 24, 2026 · Beacon Hill Gifted Connections · 50</title><circle cx="873.5" cy="246.7" r="35.3" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="873.5" cy="246.7" r="43.3" fill="transparent"/></g>
+<g><title>Decatur HS — 405 people, 7 visits
+Sep 17, 2025 · Decatur High School · 30
+Sep 18, 2025 · Decatur High School · 40
+Sep 29, 2025 · Decatur High School · 24
+Sep 30, 2025 · Decatur High School · 75
+Sep 28, 2026 · Decatur High School Psych Class Visits · 84
+Sep 29, 2026 · Decatur High School · 68
+Sep 29, 2026 · Decatur High School Psychology Classes · 84</title><circle cx="876.7" cy="237.9" r="29.6" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="876.7" cy="237.9" r="37.6" fill="transparent"/></g>
+<g><title>Slater Elementary — 225 people, 1 visit
+Apr 24, 2026 · Slater Elementary · 225</title><circle cx="652.3" cy="388.2" r="22.1" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="652.3" cy="388.2" r="30.1" fill="transparent"/></g>
+<g><title>GSU Research Showcase — 200 people, 1 visit
+Oct 14, 2025 · Georgia State University, Undergraduate Research Showcase · 200</title><circle cx="667.7" cy="286.9" r="20.8" fill="#534AB7" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="667.7" cy="286.9" r="28.8" fill="transparent"/></g>
+<g><title>Wesley Intl Academy — 151 people, 1 visit
+Mar 12, 2026 · Wesley Academy STEM Night · 151</title><circle cx="678.2" cy="308.5" r="18.1" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="678.2" cy="308.5" r="26.1" fill="transparent"/></g>
+<g><title>Agape STEM Summit — 93 people, 1 visit
+Aug 23, 2025 · Agape Level Up STEM Summit · 93
+Approximate position (city)</title><circle cx="657.2" cy="284.3" r="14.2" fill="#1D9E75" fill-opacity="0.35" stroke="#1D9E75" stroke-width="2" stroke-dasharray="3 2"/><circle cx="657.2" cy="284.3" r="22.2" fill="transparent"/></g>
+<g><title>Science ATL fundraiser — 65 people, 1 visit
+May 14, 2026 · Science ATL - For the Love of Science · 65</title><circle cx="666.7" cy="334.4" r="11.9" fill="#534AB7" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="666.7" cy="334.4" r="19.9" fill="transparent"/></g>
+<g><title>Maynard Jackson HS — 15 people, 1 visit
+Oct 29, 2025 · Maynard Jackson High School, Afterschool Neuroscience Club · 15</title><circle cx="725.7" cy="330.0" r="5.7" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="725.7" cy="330.0" r="13.7" fill="transparent"/></g>
+<text x="784.1" y="218.3" text-anchor="end" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Fernbank Science Center <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">750</tspan></text>
+<text x="688.8" y="271.9" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Atlanta Science Festival Expo <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">609</tspan></text>
+<text x="873.5" y="296.8" text-anchor="middle" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Beacon Hill MS <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">575</tspan></text>
+<path d="M876.7,267.5L876.7,319.5" stroke="#888780" stroke-width="0.8"/>
+<text x="876.7" y="330.3" text-anchor="middle" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Decatur HS <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">405</tspan></text>
+<text x="678.4" y="392.0" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Slater Elementary <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">225</tspan></text>
+<path d="M684.7,298.8L699.5,309.1" stroke="#888780" stroke-width="0.8"/>
+<text x="699.5" y="313.0" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">GSU Research Showcase <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">200</tspan></text>
+<path d="M687.2,324.2L704.2,353.6" stroke="#888780" stroke-width="0.8"/>
+<text x="704.2" y="357.5" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Wesley Intl Academy <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">151</tspan></text>
+<path d="M676.5,341.2L719.1,371.0" stroke="#888780" stroke-width="0.8"/>
+<text x="719.1" y="374.9" text-anchor="start" font-size="11.5" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">Science ATL fundraiser <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="10.3">65</tspan></text>
+</g>
+<text x="595.1" y="161.7" text-anchor="start" font-size="9.0" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" letter-spacing="1.2">CENTRAL ATLANTA &amp; DECATUR · ENLARGED</text>
+<rect x="730" y="10" width="220" height="98" rx="3" fill="#FFFFFF" stroke="#D9D5CA"/>
+<g><title>National Cathedral School (DC) — 30 people, 1 visit
+Apr 22, 2026 · National Cathedral School, Washington DC · 30</title><circle cx="840.0" cy="60.0" r="8.1" fill="#1D9E75" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="2"/><circle cx="840.0" cy="60.0" r="16.1" fill="transparent"/></g>
+<text x="840.0" y="94.0" text-anchor="middle" font-size="10.3" fill="#1C1B18" paint-order="stroke" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round">National Cathedral School (DC) <tspan fill="#4A4945" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="9.3">30</tspan></text>
+<text x="740.0" y="28.0" text-anchor="start" font-size="9.0" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" letter-spacing="1.2">OUTSIDE GEORGIA</text>
+<g font-size="10.6" fill="#4A4945"><rect x="10" y="1179.025382362763" width="204" height="152.0" rx="3" fill="#FFFFFF" fill-opacity="0.92" stroke="#E0DDD4"/><text x="22" y="1197.025382362763" font-family="&#x27;DM Mono&#x27;, Menlo, monospace" font-size="9.0" letter-spacing="1.2" fill="#888780">PEOPLE REACHED PER SITE</text><circle cx="62" cy="1272.6" r="10.4" fill="none" stroke="#888780" stroke-width="1"/><path d="M62,1262.2H120" stroke="#C9C5BA" stroke-width="0.8"/><text x="124" y="1266.2" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">50</text><circle cx="62" cy="1262.2" r="20.8" fill="none" stroke="#888780" stroke-width="1"/><path d="M62,1241.4H120" stroke="#C9C5BA" stroke-width="0.8"/><text x="124" y="1245.4" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">200</text><circle cx="62" cy="1250.1" r="32.9" fill="none" stroke="#888780" stroke-width="1"/><path d="M62,1217.2H120" stroke="#C9C5BA" stroke-width="0.8"/><text x="124" y="1221.2" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">500</text><circle cx="28" cy="1297.025382362763" r="5" fill="#1D9E75" fill-opacity=".78"/><text x="40" y="1301.025382362763">K–12 school &amp; youth visits</text><circle cx="28" cy="1313.025382362763" r="5" fill="#534AB7" fill-opacity=".78"/><text x="40" y="1317.025382362763">Community &amp; public events</text></g>
+<path d="M825.6,1323.025382362763V1327.025382362763H936.0V1323.025382362763" fill="none" stroke="#888780" stroke-width="1.2"/>
+<text x="819.6" y="1327.0" text-anchor="end" font-size="9.2" fill="#888780" font-family="&#x27;DM Mono&#x27;, Menlo, monospace">10 km</text>
+</svg>
