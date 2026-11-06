@@ -465,8 +465,9 @@ def build_poster(report, events, venues_path, out_dir, chrome=None):
                 links += f' <a href="poster/{key}_notitle.png" download>PNG</a>'
         cards.append(f'<section><div class="cap"><span>{_e(name)}</span><span class="dl">{links}</span></div>{svg}</section>')
     cards.append('<section><div class="cap"><span>Outreach map</span><span class="dl">'
-                 '<a href="map_poster_k12.png" download>K–12 PNG</a> <a href="map_poster_all.png" download>All events PNG</a>'
-                 '</span></div><img src="map_poster_k12.png" alt="Map of K–12 school visits, dots sized by students reached"></section>')
+                 '<a href="map_poster_all.png" download>All events PNG</a> <a href="map_poster_k12.png" download>K–12 only PNG</a>'
+                 '</span></div><img src="map_poster_all.png" alt="Map of all outreach events, dots sized by people reached; '
+                 'K–12 visits in teal, public events in purple"></section>')
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>NeuroEngage Poster Charts</title>{FONT_LINK}
 <style>
