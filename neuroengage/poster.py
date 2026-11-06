@@ -317,25 +317,17 @@ def people_svg(d):
         body.append(f'<text x="{x0}" y="{y}" font-size="34" fill="{INK}"><tspan font-weight="600">{g["people"]:,}</tspan> {_e(name)}'
                     f'<tspan font-size="25" fill="{INK_MID}" font-weight="300">  ·  {round(100 * g["people"] / total)}% · {_e(sub)}</tspan></text>')
         y += 26
-        full, part = int(n), n - int(n)
-        count = full + (1 if part > .05 else 0)
+        count = max(1, round(n))  # whole figures only, same rule for every row
         for i in range(count):
             fx = x0 + (i % per_row) * fw
             fy = y + (i // per_row) * fh
-            glyph = f'<path d="{_PERSON}" transform="translate({fx},{fy})" fill="{hue}"/>'
-            if i == full:  # partial figure, clipped by width
-                cid = f'cp{gi}'
-                defs.append(f'<clipPath id="{cid}"><rect x="{fx}" y="{fy}" width="{24 * part:.1f}" height="46"/></clipPath>')
-                body.append(f'<path d="{_PERSON}" transform="translate({fx},{fy})" fill="{GRID}"/>'
-                            f'<g clip-path="url(#{cid})">{glyph}</g>')
-            else:
-                body.append(glyph)
+            body.append(f'<path d="{_PERSON}" transform="translate({fx},{fy})" fill="{hue}"/>')
         y += math.ceil(count / per_row) * fh + 70
     h = y - 10
     body.insert(0, _header(f'Most of the people we reach are K–12 students',
                            f'People reached by audience, {d["since_label"]} – {d["through"]}'))
     body.append(f'<path d="{_PERSON}" transform="translate({x0},{h - 58}) scale(.6)" fill="{INK_MID}"/>'
-                f'<text x="{x0 + 24}" y="{h - 34}" font-size="24" fill="{INK_MID}">= {PER_FIGURE} people</text>')
+                f'<text x="{x0 + 24}" y="{h - 34}" font-size="24" fill="{INK_MID}">= {PER_FIGURE} people (rounded to the nearest figure)</text>')
     return _svg(h, f'<defs>{"".join(defs)}</defs>' + ''.join(body), 'Who we reach, as people')
 
 
