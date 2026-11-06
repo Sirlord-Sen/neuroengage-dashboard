@@ -713,7 +713,7 @@ MAP_JS = r"""
       else map.setView([dc[0].lat,dc[0].lon],12);
     });
   });
-  setView('k12');
+  setView('all');
 })();
 """
 
@@ -797,8 +797,8 @@ def render_map_page(data, sources, svgs, files):
 </div>
 <div class="section">
   <div class="toggle" role="group" aria-label="Which events to show">
-    <button data-view="k12" aria-pressed="true">K–12 school &amp; youth visits</button>
-    <button data-view="all" aria-pressed="false">All events</button>
+    <button data-view="all" aria-pressed="true">All events</button>
+    <button data-view="k12" aria-pressed="false">K–12 school &amp; youth visits</button>
     <button class="jump" data-jump="home">Metro Atlanta</button>
     {dc_button}
   </div>
